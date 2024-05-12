@@ -1,27 +1,41 @@
 .item-details {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center align the items horizontally */
-  justify-content: center; /* Center align the items vertically */
+  align-items: center;
+  justify-content: center;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 20px;
-  background-color: #fff;
+  background-color: #f9f9f9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  color: #333; /* Set the text color to a darker shade */
+  color: #333;
 }
 
 .item-details h4 {
   margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.item-details img {
+  width: 150px; /* Adjust image width as needed */
+  margin-bottom: 15px;
 }
 
 .item-details p {
   margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.item-details h6 {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .item-details button {
-  background-color: #007bff;
+  background-color: #ffc107; /* Gold color */
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -30,5 +44,31 @@
 }
 
 .item-details button:hover {
-  background-color: #0056b3;
+  background-color: #ffca28; /* Lighter shade of gold on hover */
 }
+
+/* Styling for input */
+.item-details input[type="number"] {
+  width: 50px;
+  margin-right: 10px;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Disabled button style */
+.item-details button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.p123{
+  color: black;
+}
+.item-details h4 {
+  margin-bottom: 10px;
+  font-size: 24px; /* Increased font size */
+  font-weight: bold;
+  color: #28a745; /* Green color */
+}
+

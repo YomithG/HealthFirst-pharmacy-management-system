@@ -22,7 +22,8 @@ const AddCustomer = () => {
     const phoneRegex = /^(07)\d{8}$/; // Regex for phone number starting with "07" and 10 digits
     if (!phoneRegex.test(phoneNo)) {
       setError("Please enter a valid phone number starting with '07' and containing 10 digits");
-      return;
+    } else {
+      setError(""); // Clear the error message if the phone number is valid
     }
   
     // NIC validation
