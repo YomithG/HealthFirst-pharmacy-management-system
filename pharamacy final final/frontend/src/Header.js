@@ -57,9 +57,7 @@ const Header = () => {
                 </div>
               )}
             </li>
-            <li className="nav-item" style={{ marginRight: '0px' }}>
-              <Link to="/admin" className="nav-link">Admin</Link>
-            </li>
+            
             <li className="nav-item" style={{ marginRight: '0px' }}>
               <Link to="/cart">
                 <div className="cartContainer">
@@ -76,6 +74,9 @@ const Header = () => {
                   </div>
                 </div>
               </Link>
+            </li>
+            <li className="nav-item" style={{ marginRight: '0px' }}>
+              <Link to="/admin" className="nav-link">Admin</Link>
             </li>
           </ul>
         </div>
