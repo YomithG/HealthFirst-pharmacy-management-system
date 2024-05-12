@@ -18,7 +18,6 @@ const AddProductForm = () => {
 
   // Handle image upload
   const handleImageUpload = (e) => {
-    // const file = e.target.files[0];
     setFile(file);
     handleUpload({ file, setPercent, setFunc: setImage });
   };
@@ -77,6 +76,7 @@ const AddProductForm = () => {
     <form style={{ width: "50%", margin: "auto" }} onSubmit={handleSubmit}>
       <h3>Add a new Product</h3>
 
+      {/* //upload image */}
       <div className="form-group">
         <label className="my-2" htmlFor="image">
           Product Image
@@ -115,6 +115,7 @@ const AddProductForm = () => {
         </div>
       </div>
 
+      {/* Title */}
       <div className="form-group">
         <label className="my-2" htmlFor="title">  
           Title
@@ -129,7 +130,8 @@ const AddProductForm = () => {
           required
         />
       </div>
-
+      
+      {/* description */}
       <div className="form-group">
         <label className="my-2" htmlFor="description">
           Description
@@ -144,7 +146,8 @@ const AddProductForm = () => {
           required
         />
       </div>
-
+      
+      {/* Category */}
       <div className="form-group">
         <label className="my-2" htmlFor="category">
           Category
