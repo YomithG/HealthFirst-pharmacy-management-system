@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import config from "./config2"; // Import config2.js instead of config.json
 
 axios.defaults.baseURL = 'http://localhost:8070';
 
@@ -10,24 +11,24 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault(); // Prevent form submission
+
     try {
-      console.log(username, password)
-      const response = await axios.post('/customer_account/', {
-        username,
-        password,
-      });
+      const hardcodedCredentials = config.credentials; // Access the credentials from the configuration
 
-      if (response.data.success) {
-        // Store the token and user details in the browser's local storage
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("fullName", response.data.fullName);
-
-        // Navigate to the dashboard or any other protected route
-        navigate("/home");
-      } else {
-        setError(response.data.message);
+      // Check if entered username exists in hardcoded credentials
+      if (username in hardcodedCredentials) {
+        // Check if entered password matches the corresponding hardcoded password
+        if (password === hardcodedCredentials[username]) {
+          // Redirect to home page
+          navigate("/home");
+          return; // Exit function
+        }
       }
+
+      // If username or password is incorrect, set error message
+      setError("Invalid username or password.");
     } catch (err) {
       console.error("Login error:", err);
       setError("An error occurred during login. Please try again.");
@@ -35,8 +36,8 @@ const Login = () => {
   };
 
   return (
-    <div className="container" style={{ marginTop: "100px" }}>
-      <div className="row justify-content-center">
+    <div className="container">
+      <div className="row justify-content-center mt-5">
         <div className="col-md-6">
           <h2 className="text-center mb-4">Login</h2>
           <form onSubmit={handleLogin}>
@@ -63,7 +64,7 @@ const Login = () => {
               />
             </div>
             {error && <div className="alert alert-danger">{error}</div>}
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary btn-block">
               Login
             </button>
           </form>

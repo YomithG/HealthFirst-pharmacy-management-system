@@ -19,7 +19,8 @@ const AddCustomer = () => {
     e.preventDefault();
   
     // Phone number validation
-    const phoneRegex = /^(07)\d{8}$/; // Regex for phone number starting with "07" and 10 digits
+    const phoneRegex = /^07\d{8}$/;
+// Regex for phone number starting with "07" and 10 digits
     if (!phoneRegex.test(phoneNo)) {
       setError("Please enter a valid phone number starting with '07' and containing 10 digits");
     } else {
