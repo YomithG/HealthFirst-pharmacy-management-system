@@ -41,7 +41,7 @@ const Home = () => {
 
 
       {/* About Us section */}
-      <section style={{ height: '800px', backgroundColor: '#ffe9e1', textAlign: 'center', paddingTop: '200px' }}>
+      <section style={{ height: '800pxS', backgroundColor: '#ffe9e1', textAlign: 'center', paddingTop: '200px' }}>
         <h2>About Us</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et bibendum velit.</p>
       </section>
