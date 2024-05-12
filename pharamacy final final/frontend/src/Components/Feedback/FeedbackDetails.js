@@ -106,16 +106,11 @@ const FeedbackDetails = ({ feedback, onUpdateFeedback }) => {
                     <p>{formatDistanceToNow(new Date(feedback.createdAt), { addSuffix: true })}</p>
      <br></br>
                     <div className="action-buttons">
-                        <table>
-                            <tr>
-                                <td>
+                     
                                 <button onClick={handleClick}>delete</button>
-                                </td>
-                                <td>
+                                
                                 <button onClick={handleEdit}>Edit</button>
-                                </td>
-                            </tr>
-                        </table>
+                        
                    
                        
                     </div>
