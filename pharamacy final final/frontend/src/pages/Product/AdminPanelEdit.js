@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify'; // Import toast from react-toastify
-import 'react-toastify/dist/ReactToastify.css'; // Import the default styles
+import Toast from "../../utils/Toast";
 
 const AdminPanelEdit = () => {
   const [items, setItems] = useState([]);
@@ -50,12 +49,11 @@ const AdminPanelEdit = () => {
       setItems(items.map(item => item._id === editedItem._id ? editedItem : item));
       setIsEditing(false);
       setEditedItem(null);
-      // Show success message
-      toast.success('Changes saved successfully');
+
+      Toast({ type: "success", message: "Updated successfully" });
     } catch (error) {
       console.error("Error saving changes:", error);
-      // Show error message
-      toast.error('Failed to save changes');
+      Toast({ type: "error", message: "Error in updating!" });
     }
   };
   
@@ -81,12 +79,10 @@ const AdminPanelEdit = () => {
         throw new Error("Failed to delete item");
       }
       setItems(items.filter(item => item._id !== itemId));
-      // Show success message
-      toast.success('Item deleted successfully');
+      Toast({ type: "success", message: "Deleted successfully" });
     } catch (error) {
       console.error("Error deleting item:", error);
-      // Show error message
-      toast.error('Failed to delete item');
+      Toast({ type: "error", message: "Error in deleting" });
     }
   };
 
@@ -104,6 +100,7 @@ const AdminPanelEdit = () => {
             <th>Title</th>
             <th>Description</th>
             <th>Category</th>
+            <th>Stock</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -113,6 +110,7 @@ const AdminPanelEdit = () => {
               <td>{isEditing && editedItem._id === item._id ? <input value={editedItem.title || ''} onChange={(e) => setEditedItem({...editedItem, title: e.target.value})} /> : item.title}</td>
               <td>{isEditing && editedItem._id === item._id ? <input value={editedItem.description || ''} onChange={(e) => setEditedItem({...editedItem, description: e.target.value})} /> : item.description}</td>
               <td>{isEditing && editedItem._id === item._id ? <input value={editedItem.category || ''} onChange={(e) => setEditedItem({...editedItem, category: e.target.value})} /> : item.category}</td>
+              <td>{isEditing && editedItem._id === item._id ? <input value={editedItem.countInStock || ''} onChange={(e) => setEditedItem({...editedItem, countInStock: e.target.value})} /> : item.countInStock}</td>
               <td>
                 {isEditing && editedItem._id === item._id ? (
                   <>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Toast from "../../utils/Toast";
 import './DelievryPage.css';
 import jsPDF from 'jspdf';
 import DeliveryDetails from "../../Components/Product/DeliveryDetails";
@@ -35,24 +36,27 @@ const DeliveryPage = () => {
                 throw new Error('Failed to update item');
             }
             const updatedDetail = await response.json();
-            // Update the specific detail in the state
             setDetails(prevDetails => {
-                return prevDetails.map(detail => {
+                const updatedDetails = prevDetails.map(detail => {
                     if (detail._id === updatedDetail._id) {
                         return updatedDetail;
                     }
                     return detail;
                 });
+               
+                return updatedDetails;
             });
+            // Show success message
+            Toast({ type: "success", message: "Updated successfully" });
         } catch (error) {
+            Toast({ type: "error", message: "Error in updating!" });
             console.error('Error updating detail: ', error);
         }
     };
     
-
     const handleDelete = async (detailId) => {
         try {
-            if (window.confirm('Are you sure you want to delete this detail?')) {
+            if (window.confirm("Are you sure you want to delete this detail?")) {
                 const response = await fetch(`http://localhost:8070/api/delivery_details/${detailId}`, {
                     method: 'DELETE'
                 });
@@ -60,9 +64,12 @@ const DeliveryPage = () => {
                     throw new Error('Failed to delete item');
                 }
                 setDetails(prevDetails => prevDetails.filter(detail => detail._id !== detailId));
+                // Show success message
+                Toast({ type: "success", message: "Detail deleted successfully" });
             }
         } catch (error) {
             console.error('Error deleting detail: ', error);
+            Toast({ type: "error", message: "Failed to delete detail" });
         }
     };
 
@@ -71,24 +78,24 @@ const DeliveryPage = () => {
         const margin = 15;
         const lineHeight = 10;
         let yOffset = margin;
-
+    
         // Calculate height of content
         const contentHeight = (detail.orderItems.length * 2 + 6) * lineHeight;
-
+    
         // Draw frame
         doc.rect(margin, margin, doc.internal.pageSize.width - 2 * margin, contentHeight + 6 * lineHeight, 'S');
-
+    
         // Title
         doc.setFont('times', 'bold');
         doc.setFontSize(20);
         doc.text('Health-First', margin, yOffset);
         yOffset += lineHeight * 2;
-
+    
         // Subtitle
         doc.setFontSize(16);
         doc.text('Invoice', margin, yOffset);
         yOffset += lineHeight * 2;
-
+    
         // Address
         doc.setFontSize(12);
         doc.text('Central Pharmacy, Pokunuwita', margin, yOffset);
@@ -97,13 +104,13 @@ const DeliveryPage = () => {
         yOffset += lineHeight;
         doc.text('Email: healthfirstpharmacy@gmail.com', margin, yOffset);
         yOffset += lineHeight * 2;
-
+    
         // Order Details
         doc.setFont('times', 'bold');
         doc.setFontSize(16);
         doc.text('Order Details', margin, yOffset);
         yOffset += lineHeight * 2;
-
+    
         doc.setFont('times', 'normal');
         doc.setFontSize(14);
         detail.orderItems.forEach((item) => {
@@ -113,26 +120,26 @@ const DeliveryPage = () => {
             doc.text(`  Price: Rs. ${item.price.toFixed(2)}`, margin + 80, yOffset);
             yOffset += lineHeight;
         });
-
+    
         // Total Price
         const totalPrice = detail.orderItems.reduce((total, item) => total + (item.price * item.quantity), 0);
         doc.setFont('times', 'bold');
         doc.text(`Total Price: Rs. ${totalPrice.toFixed(2)}`, margin, yOffset);
         yOffset += lineHeight * 2;
-
+    
         // Date
         const date = new Date().toLocaleDateString();
         doc.text(`Date: ${date}`, margin, yOffset);
-
+    
         // Footer
         doc.setFontSize(10);
         doc.text('Thank you for your purchase!', margin, doc.internal.pageSize.height - margin);
-
+    
         // Save the PDF
         doc.save('order_details.pdf');
     };
-
-    return (
+       
+   return (
         <div className="main">
             <h1 className="page-title">Delivery and Order Details</h1>
             <div className="details-container">
@@ -142,7 +149,7 @@ const DeliveryPage = () => {
                             detail={detail}
                             isEditable={true} // Delivery details are editable
                             onUpdate={handleUpdate}
-                            onDelete={() => handleDelete(detail._id)} // Pass detail id to handleDelete
+                            onDelete={handleDelete}
                         />
                         <div className="order-details">
                             <h3>Order Detail</h3>
