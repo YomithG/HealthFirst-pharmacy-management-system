@@ -9,30 +9,35 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showSuccess, setShowSuccess] = useState(false); // State to control the visibility of success modal
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault(); // Prevent form submission
 
     try {
-      const hardcodedCredentials = config.credentials; // Access the credentials from the configuration
+      const allowedUsernames = [
+        "Sajith", "ddd", "wicki", "batman", "yomith", 
+        "qwert", "sathyajith", "shanika_b", "rohanf", "nadeeshap"
+      ];
 
-      // Check if entered username exists in hardcoded credentials
-      if (username in hardcodedCredentials) {
-        // Check if entered password matches the corresponding hardcoded password
-        if (password === hardcodedCredentials[username]) {
-          // Redirect to home page
-          navigate("/home");
-          return; // Exit function
-        }
+      if (allowedUsernames.includes(username) && password === '123') {
+        // If the username and password match, set showSuccess to true
+        setShowSuccess(true);
+        return;
       }
 
-      // If username or password is incorrect, set error message
+      // If the username or password is incorrect, set error message
       setError("Invalid username or password.");
     } catch (err) {
       console.error("Login error:", err);
       setError("An error occurred during login. Please try again.");
     }
+  };
+
+  const handleOk = () => {
+    // Redirect to home page
+    navigate("/medicine");
   };
 
   return (
@@ -70,6 +75,25 @@ const Login = () => {
           </form>
         </div>
       </div>
+      {/* Login Success Modal */}
+      {showSuccess && (
+        <div className="modal fade show" style={{ display: "block" }} tabIndex="-1" role="dialog">
+          <div className="modal-dialog modal-dialog-centered" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Login Success</h5>
+                <button type="button" className="close" onClick={handleOk}>
+                  <span>&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <p>You have successfully logged in.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* End of Login Success Modal */}
     </div>
   );
 };
