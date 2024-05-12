@@ -3,7 +3,6 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import ItemDetails from "../../Components/Product/ProductDetails";
 import Navbar from "../../Components/Product/Navbar";
 
-
 const Medicine = () => {
   const [items, setItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -24,7 +23,7 @@ const Medicine = () => {
     fetchItems();
   }, []);
 
-  // Filter items based on search term
+  // Filter items based on search term , filter using title and category
   const filteredItems = items.filter(item =>
     item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     item.category.toLowerCase().includes(searchTerm.toLowerCase())
@@ -33,7 +32,7 @@ const Medicine = () => {
   return (
     <>
       <br />
-      {/* <Container className="mt-5"> */}
+      {/* search field */}
         <Row className="justify-content-center align-items-start">
           <Col sm={3}>
             
@@ -53,8 +52,9 @@ const Medicine = () => {
             </Form>
           </Col>
         </Row>
-      {/* </Container> */}
+
       <br /><br />
+      {/* view product details */}
       <Row xs={1} md={2} className="g-4">
         {filteredItems.map((item) => (
           <Col key={item._id}>

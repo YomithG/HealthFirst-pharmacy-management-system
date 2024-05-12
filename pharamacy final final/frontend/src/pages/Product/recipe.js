@@ -1,3 +1,14 @@
+//not using
+
+
+
+
+
+
+
+
+
+
 import React from "react";
 import { useShoppingCartStore } from "./ShoppingCart";
 

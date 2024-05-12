@@ -39,7 +39,7 @@ const CheckoutPage = () => {
     },
   });
 
-  // Regular expression to match exactly 10 digits
+  // can only enter 10 numbers
 const contactNoRegExp = /^\d{10}$/;
 
   // Submit function
@@ -49,7 +49,7 @@ const contactNoRegExp = /^\d{10}$/;
       name: values.name,
       address: values.address,
       city: values.city,
-      contactNo: Number(values.contactNo), // Convert to number explicitly
+      contactNo: Number(values.contactNo), // Convert to number 
       totalPrice: totalPrice,
       orderItems: cartItems.map((item) => ({
         product: item._id,
@@ -59,7 +59,7 @@ const contactNoRegExp = /^\d{10}$/;
       })),
     };
 
-    // if payment is successful, create the order
+    // if payment is successful, create order
     createOrder(orderData);
     reset();
     resetCart();
@@ -67,7 +67,7 @@ const contactNoRegExp = /^\d{10}$/;
   };
 
   return (
-    //   set max width to 1/2 of the screen
+    //set max width to 1/2 of the screen
     <div className="mt-4 mb-4">
       <h2>Checkout</h2>
       <form
@@ -114,27 +114,27 @@ const contactNoRegExp = /^\d{10}$/;
         </div>
         
         <div className="form-group">
-  <label className="my-2" htmlFor="city">
-    City
-  </label>
-  <select
-    className="form-select"
-    id="city"
-    name="city"
-    {...register("city", { required: true })}
-  >
-    <option value="">Select a city</option>
-    <option value="Malabe">Malabe</option>
-    <option value="Kaduwela">Kaduwela</option>
-    <option value="Koswaththa">Koswaththa</option>
-  </select>
-  {errors.city && (
-    <small className="form-text text-danger">City is required</small>
-  )}
-</div>
+        <label className="my-2" htmlFor="city">
+          City
+        </label>
+        <select
+          className="form-select"
+          id="city"
+          name="city"
+          {...register("city", { required: true })}
+        >
+        <option value="">Select a city</option>
+        <option value="Malabe">Malabe</option>
+        <option value="Kaduwela">Kaduwela</option>
+        <option value="Koswaththa">Koswaththa</option>
+        </select>
+        {errors.city && (
+        <small className="form-text text-danger">City is required</small>
+        )}
+      </div>
 
 
-          {/* ContactNo */}
+      {/* ContactNo */}
       <div className="form-group">
         <label className="my-2" htmlFor="contactNo">
           Contact Number
@@ -148,7 +148,7 @@ const contactNoRegExp = /^\d{10}$/;
           {...register("contactNo", {
             required: "Contact Number is required",
             pattern: {
-              value: contactNoRegExp,
+              value: contactNoRegExp, //validation function 43 line
               message: "Please enter a valid 10-digit contact number"
             }
           })}
@@ -158,7 +158,6 @@ const contactNoRegExp = /^\d{10}$/;
         )}
       </div>
 
-        
         {/* Total Price */}
         <div className="mt-4">
           <h4>Total Price: Rs.{totalPrice}</h4>

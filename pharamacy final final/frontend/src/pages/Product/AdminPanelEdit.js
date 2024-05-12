@@ -26,12 +26,14 @@ const AdminPanelEdit = () => {
     fetchItems();
   }, []);
 
+  //set the details to edit
   const editItem = (itemId) => {
     const itemToEdit = items.find(item => item._id === itemId);
     setEditedItem({ ...itemToEdit });
     setIsEditing(true);
   };
   
+  //save the edited details to the db
   const saveChanges = async () => {
     try {
       console.log("Attempting to save changes...");
@@ -57,19 +59,19 @@ const AdminPanelEdit = () => {
     }
   };
   
-   
+   //if cancel updating
   const cancelEditing = () => {
     setIsEditing(false);
     setEditedItem(null);
   };
-
+  //confirm deleting
   const confirmDeleteItem = (itemId) => {
     setDeleteItemId(itemId);
     if (window.confirm("Are you sure you want to delete this item?")) {
       deleteItem(itemId);
     }
   };
-
+  //delete details
   const deleteItem = async (itemId) => {
     try {
       const response = await fetch(`http://localhost:8070/api/product/${itemId}`, {
