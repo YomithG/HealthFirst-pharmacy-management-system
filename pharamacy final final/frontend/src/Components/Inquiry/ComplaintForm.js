@@ -64,7 +64,7 @@ const ComplaintForm = () => {
   // Form template
   return (
     <form className="create" onSubmit={handleSubmit}>
-      <p>Please complete this form and one of our agents will reply to you by email or phone you as soon as possible.</p>
+      <p style={{ color: 'var(--primary)', marginBottom: '10px', fontSize: '0.9em' }}>Please complete this form and one of our agents will reply to you by email or phone you as soon as possible.</p>
 
       <label>Name:</label>
       <input
@@ -73,7 +73,7 @@ const ComplaintForm = () => {
         value={name}
       />
 
-      <label>Telephone:<p>(input in the correct format. ex:XXX-XXX-XXXX)</p></label>
+      <label>Telephone:<p style={{ color: 'var(--primary)', fontSize: '0.9em' }}>(input in the correct format. ex: XXX-XXX-XXXX)</p></label>
       <input
         type="tel"
         onChange={(e) => setTelephone(e.target.value)}
