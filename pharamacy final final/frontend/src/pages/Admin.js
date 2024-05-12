@@ -86,27 +86,32 @@ const Admin = () => {
         <div className='col-8 h-100 w-100'>
             <div className="tab-content" id="v-pills-tabContent">
                 {/* Render components based on activeTab */}
+                {activeTab === 'tab3' && <AllCustomer />}
                 {activeTab === 'tab1' && <AllEmployee />}
+
                 {activeTab === 'tab21' && <GetDelivery />}
+                {activeTab === 'tab22' && <DeliveryPage />}
+                
                 {activeTab === 'tab9' && <CheckComplaints />}
                 {activeTab === 'tab23' && <CheckFeedback />}
+
                 {activeTab === 'tab12' && <Dashboard />}
                 {activeTab === 'tab14' && <Attendance />}
                 {activeTab === 'tab15' && <Leave />}
                 {activeTab === 'tab16' && <SalaryReport />}
                 {activeTab === 'tab17' && <BonusPage />}
+                
           
                 {activeTab === 'tab6' && <AllInventoryMedicines />}
-
-                {activeTab === 'tab3' && <AllCustomer />}
                 {activeTab === 'tab7' && <AllNewMedicines />}
+
                 {activeTab === 'tab10' && <ViewSuppliers />}
                 {activeTab === 'tab25' && <AttendanceEmp />}
                 {activeTab === 'tab26' && <LeavesEmp />}
                 {activeTab === 'tab19' && < LeavesEmp/>}
 
                 {activeTab === 'tab24' && <AdminPanelEdit />}
-                {activeTab === 'tab22' && <DeliveryPage />}
+                
                 
             </div>
         </div>
