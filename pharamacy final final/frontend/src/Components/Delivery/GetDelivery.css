@@ -1,0 +1,111 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+.delivery-table-container {
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.delivery-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.delivery-table th, .delivery-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.delivery-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+}
+
+.delivery-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.delivery-table tbody tr:hover {
+    background-color: #ddd;
+}
+
+.update-button {
+    margin-right: 5px; 
+    background-color: #ffbf00; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-button {
+    background-color: #dc3545; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.save-button {
+    margin-right: 5px; 
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.cancel-button {
+    background-color: #dc3545; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
+.container {
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+  }
+  
+  .search-bar {
+    margin-bottom: 10px;
+  }
+  
+  .search-bar input[type="text"] {
+    padding: 8px 30px 8px 10px; /* Adjust padding to accommodate the icon */
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #555;
+  }
+  
+  
+  .download-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .download-button:hover {
+    background-color: #45a049;
+  }
+  

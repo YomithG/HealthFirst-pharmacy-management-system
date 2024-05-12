@@ -1,0 +1,19 @@
+.nav {
+    background-color: #5ea486; /* Background color */
+    padding: 10px 0; /* Padding */
+  }
+  
+  .nav-item {
+    margin-right: 20px; /* Spacing between menu items */
+  }
+  
+  .nav-link {
+    color: #030303; /* Text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Font size */
+  }
+  
+  .nav-link:hover {
+    color: #fffffe; /* Text color on hover */
+  }
+  

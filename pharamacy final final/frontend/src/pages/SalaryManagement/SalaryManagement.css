@@ -1,0 +1,391 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+
+/* layout */
+:root {
+  --primary: #1aac83;
+  --error: #e7195a;
+}
+body {
+  background: #f1f1f1;
+  margin: 0;
+  font-family: "Poppins";
+}
+header {
+  background: #fff;
+}
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a {
+  color: #333;
+  text-decoration: none;
+}
+.pages {
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* homepage*/
+.home {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 100px
+}
+.salary-details {
+  background: #fff;
+  border-radius: 4px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+.salary-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+.salary-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.workout-details span {
+  position: absolute;
+  top: 20px;
+  right:20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+}
+
+/* new workout form */
+label, input {
+  display: block;
+}
+input {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+form button {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+}
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+input.error {
+  border: 1px solid vavr(--error);
+}
+
+/*delete button*/
+.delete-button {
+  cursor: pointer; /* Show pointer cursor on hover to indicate interactivity */
+  display: inline-block; /* Ensure the span takes up only as much width as necessary */
+  padding: 5px 10px; /* Add padding to make the clickable area larger */
+  background-color: #ff6347; /* Red background color for delete button */
+  color: #fff; /* White text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Add rounded corners */
+  font-size: 14px; /* Adjust font size */
+}
+
+.delete-button:hover {
+  background-color: #cc4125; /* Darker red background color on hover */
+}
+
+.delete-button:active {
+  background-color: #b82e00; /* Even darker red background color on click */
+}
+
+/* edit */
+.edit-button {
+  cursor: pointer; /* Show pointer cursor on hover to indicate interactivity */
+  display: inline-block; /* Ensure the span takes up only as much width as necessary */
+  padding: 5px 10px; /* Add padding to make the clickable area larger */
+  background-color: #ff6347; /* Red background color for delete button */
+  color: #fff; /* White text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Add rounded corners */
+  font-size: 14px; /* Adjust font size */
+}
+
+.edit-button:hover {
+  background-color: #cc4125; /* Darker red background color on hover */
+}
+
+.edit-button:active {
+  background-color: #b82e00; /* Even darker red background color on click */
+}
+
+/*salary details table*/
+.salary-details {
+  margin-top: 20px;
+}
+.salary-details table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.salary-details th,
+.salary-details td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+.salary-details th {
+  background-color: #f2f2f2;
+}
+.salary-details tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.salary-details tr:hover {
+  background-color: #ddd;
+}
+.salary-details .delete-button,
+.salary-details .edit-button {
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+.salary-details .delete-button {
+  background-color: #ff6347;
+  color: #fff;
+}
+.salary-details .edit-button {
+  background-color: #1e90ff;
+  color: #fff;
+}
+.salary-details .delete-button:hover,
+.salary-details .edit-button:hover {
+  background-color: #cc4125;
+}
+
+/* Side navigation bar */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.sidenav ul {
+  list-style-type: none;
+  padding: 0;
+}
+.sidenav ul li {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #818181;
+  display: block;
+}
+.sidenav ul li a {
+  text-decoration: none;
+  color: #f1f1f1;
+}
+.sidenav ul li a:hover {
+  color: #f00;
+}
+.brand {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #818181;
+  font-size: 20px;
+}
+.brand:hover {
+  color: #f1f1f1;
+}
+/* Adjust content to accommodate side navigation */
+.pages {
+  margin-left: 200px; /* Width of the side navigation */
+  padding: 20px;
+}
+
+/* top navigation bar*/
+header {
+  background: #fff;
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  height: 20vh; /* Make the header occupy the full height of the viewport */
+}
+
+.container {
+  text-align: center; /* Center the text horizontally */
+}
+
+h1 {
+  margin: 0; /* Remove default margin */
+}
+
+/*save button*/
+button.save-button {
+  background-color: #1aac83; /* Primary color */
+  color: #fff; /* Text color */
+  padding: 10px 20px; /* Padding */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Show pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+button.save-button:hover {
+  background-color: #168e6e; /* Darker shade of primary color on hover */
+}
+
+button.save-button:active {
+  background-color: #126955; /* Even darker shade of primary color when clicked */
+}
+
+/* SalaryReport.css */
+/* Container for the entire report */
+.salary-report {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+/* Page title */
+.page-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+/* Employee section */
+.employee-section {
+    margin-bottom: 30px;
+}
+/* Employee name */
+.employee-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+/* Table containing salary details */
+.salary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+/* Table headers */
+.salary-table th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 10px;
+}
+/* Table data */
+.salary-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+/* Alternate row background color */
+.salary-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+/* Error message */
+.error-message {
+    color: red;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* BonusReport.css */
+
+.bonus-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.bonus-table th,
+.bonus-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.bonus-table th {
+  background-color: #f2f2f2;
+}
+
+/*attendance details*/
+.table-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.attendance-table th,
+.attendance-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+.attendance-table th {
+  background-color: #f2f2f2;
+}
+.attendance-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.attendance-table tbody tr:hover {
+  background-color: #ddd;
+}
+
+/* Attendace successfull message*/
+.success-message {
+  color: green;
+  margin-top: 10px; /* Adjust the margin as needed */
+}
+
+
+/*leave details*/
+.leave-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.leave-table th,
+.leave-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+.leave-table th {
+  background-color: #f2f2f2;
+}
+.leave-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.leave-table tbody tr:hover {
+  background-color: #ddd;
+}

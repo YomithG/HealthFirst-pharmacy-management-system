@@ -1,0 +1,22 @@
+/* bonus form */
+.bonus-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+  }
+  .bonus-form input,
+  .bonus-form select,
+  .bonus-form button {
+    margin-bottom: 10px;
+  }
+  .bonus-form button {
+    padding: 10px;
+    background-color: #1aac83;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .bonus-form button:hover {
+    background-color: #1aac83;
+  }
