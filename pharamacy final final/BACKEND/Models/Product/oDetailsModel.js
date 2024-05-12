@@ -25,6 +25,12 @@ var detailsSchema = new mongoose.Schema(
     contactNo: {
         type: Number,
         required: true,
+        validate: {
+          validator: function (value) {
+            // Check if the value contains exactly 10 digits
+            return /^[0-9]{9}$/.test(value);
+          },
+        },
     },  
     orderItems: [
       {
