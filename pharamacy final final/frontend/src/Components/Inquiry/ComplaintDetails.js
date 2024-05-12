@@ -20,31 +20,31 @@ const ComplaintDetails = ({ complaint }) => {
     }
   };
 
-  return (
-    <div className="complaint-details">
-      <h4>{complaint.name}</h4>
-      <p>
-        <strong>Telephone: </strong>
-        <br />
-        {complaint.telephone}
-      </p>
-      <p>
-        <strong>Email: </strong>
-        <br />
-        {complaint.email}
-      </p>
-      <p>
-        <strong>Complaint Content: </strong>
-        <br />
-        {complaint.comp_content}
-      </p>
-      <br />
-      <p>{formatDistanceToNow(new Date(complaint.createdAt), { addSuffix: true })}</p>
-      <br />
-      <button className="del_button" onClick={handleClick}>
-        Delete
-      </button>
-    </div>
+  return (<div className="complaint-details">
+  <h4 style={{ color: '#333' }}>{complaint.name}</h4>
+  <p>
+  <strong style={{ color: '#333' }}>Telephone: </strong>
+    <br />
+    <span style={{ color: '#333' }}>{complaint.telephone}</span>
+  </p>
+  <p>
+  <strong style={{ color: '#333' }}>Email: </strong>
+    <br />
+    <span style={{ color: '#333' }}>{complaint.email}</span>
+  </p>
+  <p>
+  <strong style={{ color: '#333' }}>Complaint Content: </strong>
+    <br />
+    <span style={{ color: '#333' }}>{complaint.comp_content}</span>
+  </p>
+  <br />
+  <p style={{ color: '#333' }}>{formatDistanceToNow(new Date(complaint.createdAt), { addSuffix: true })}</p>
+  <br />
+  <button className="del_button" onClick={handleClick}>
+    Delete
+  </button>
+</div>
+
   );
 };
 
