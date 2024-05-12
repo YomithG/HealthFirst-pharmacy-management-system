@@ -19,18 +19,18 @@ const ItemDetails = ({ item }) => {
     <div className="item-details">
       <h4>{item.title}</h4>
       <img src={item.image} alt={item.title} />
-      <p>
+      <p className="p123">
         {item.description}
       </p>
-      <p>
+      <p className="p123">
         <strong>Category: </strong>
         {item.category}
       </p>
-      <p>
+      <p className="p123">
         <strong>Price: Rs. </strong>
         {item.price}
       </p>
-      <p>
+      <p className="p123">
         <strong>Stock: </strong>
         {item.countInStock}
       </p>
