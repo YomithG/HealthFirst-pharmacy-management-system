@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify'; // Import toast from react-toastify
+import 'react-toastify/dist/ReactToastify.css'; // Import the default styles
 
 const AdminPanelEdit = () => {
   const [items, setItems] = useState([]);
   const [editedItem, setEditedItem] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
-  const [deleteItemId, setDeleteItemId] = useState(null); // State to store the item id for deletion
+  const [deleteItemId, setDeleteItemId] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch items from the server
     const fetchItems = async () => {
       try {
         const response = await fetch("http://localhost:8070/api/product");
@@ -27,41 +28,43 @@ const AdminPanelEdit = () => {
   }, []);
 
   const editItem = (itemId) => {
-    // Find the item to edit
     const itemToEdit = items.find(item => item._id === itemId);
-    setEditedItem({ ...itemToEdit }); // Set the state with a copy of the item to avoid mutating the original item
-    setIsEditing(true); // Enable editing mode
+    setEditedItem({ ...itemToEdit });
+    setIsEditing(true);
   };
   
   const saveChanges = async () => {
     try {
-      console.log('Edited item ID:', editedItem._id); // Log the edited item ID// Log the edited item
+      console.log("Attempting to save changes...");
       const response = await fetch(`http://localhost:8070/api/product/${editedItem._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(editedItem), // Send the edited item data in the request body
+        body: JSON.stringify(editedItem),
       });
       if (!response.ok) {
         throw new Error("Failed to save changes");
       }
-      // Update the item in the state
+      console.log("Changes saved successfully!");
       setItems(items.map(item => item._id === editedItem._id ? editedItem : item));
       setIsEditing(false);
       setEditedItem(null);
+      // Show success message
+      toast.success('Changes saved successfully');
     } catch (error) {
       console.error("Error saving changes:", error);
+      // Show error message
+      toast.error('Failed to save changes');
     }
   };
   
-  // Function to handle canceling editing
+   
   const cancelEditing = () => {
     setIsEditing(false);
     setEditedItem(null);
   };
 
-  // Function to set the item id for deletion and show confirmation prompt
   const confirmDeleteItem = (itemId) => {
     setDeleteItemId(itemId);
     if (window.confirm("Are you sure you want to delete this item?")) {
@@ -69,7 +72,6 @@ const AdminPanelEdit = () => {
     }
   };
 
-  // Function to handle deleting an item
   const deleteItem = async (itemId) => {
     try {
       const response = await fetch(`http://localhost:8070/api/product/${itemId}`, {
@@ -78,10 +80,13 @@ const AdminPanelEdit = () => {
       if (!response.ok) {
         throw new Error("Failed to delete item");
       }
-      // Remove the deleted item from the state
       setItems(items.filter(item => item._id !== itemId));
+      // Show success message
+      toast.success('Item deleted successfully');
     } catch (error) {
       console.error("Error deleting item:", error);
+      // Show error message
+      toast.error('Failed to delete item');
     }
   };
 

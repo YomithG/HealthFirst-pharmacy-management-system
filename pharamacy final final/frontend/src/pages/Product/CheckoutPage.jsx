@@ -113,23 +113,26 @@ const contactNoRegExp = /^\d{10}$/;
           )}
         </div>
         
-          {/* city */}
         <div className="form-group">
-          <label className="my-2" htmlFor="city">
-            City
-          </label>
-          <input
-            placeholder="City"
-            type="text"
-            className="form-control"
-            id="city"
-            name="city"
-            {...register("city", { required: true })}
-          />
-          {errors.city && (
-            <small className="form-text text-danger">City is required</small>
-          )}
-        </div>
+  <label className="my-2" htmlFor="city">
+    City
+  </label>
+  <select
+    className="form-select"
+    id="city"
+    name="city"
+    {...register("city", { required: true })}
+  >
+    <option value="">Select a city</option>
+    <option value="Malabe">Malabe</option>
+    <option value="Kaduwela">Kaduwela</option>
+    <option value="Koswaththa">Koswaththa</option>
+  </select>
+  {errors.city && (
+    <small className="form-text text-danger">City is required</small>
+  )}
+</div>
+
 
           {/* ContactNo */}
       <div className="form-group">
