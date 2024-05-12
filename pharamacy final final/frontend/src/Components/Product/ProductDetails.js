@@ -22,17 +22,17 @@ const ItemDetails = ({ item }) => {
       <p className="p123">
         {item.description}
       </p>
-      <p className="p123">
+      <p className="p123"><h6>
         <strong>Category: </strong>
-        {item.category}
+        {item.category}</h6>
       </p>
-      <p className="p123">
+      <p className="p123"><h6>
         <strong>Price: Rs. </strong>
-        {item.price}
+        {item.price}</h6>
       </p>
-      <p className="p123">
+      <p className="p123"><h6>
         <strong>Stock: </strong>
-        {item.countInStock}
+        {item.countInStock}</h6>
       </p>
       <input
         type="number"
