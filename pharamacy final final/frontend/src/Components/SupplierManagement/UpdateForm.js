@@ -5,6 +5,7 @@ import "./UpdateForm.css";
 
 export default function UpdateForm({ selectedForm }) {
   const [form, setForm] = useState({});
+  const [suppliers, setSuppliers] = useState([]); // State to hold suppliers fetched from inventory
 
   const [updatedForm, setUpdatedForm] = useState({
     Supplier: "",
@@ -31,6 +32,19 @@ export default function UpdateForm({ selectedForm }) {
       });
   }, [selectedForm]);
 
+  useEffect(() => {
+    fetchSuppliers(); // Fetch suppliers when the component mounts
+  }, []);
+
+  const fetchSuppliers = async () => {
+    try {
+      const response = await axios.get("http://localhost:8070/inventory/suppliers");
+      setSuppliers(response.data); // Assuming response.data is an array of suppliers
+    } catch (error) {
+      console.error("Error fetching suppliers:", error);
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUpdatedForm({ ...updatedForm, [name]: value });
@@ -40,11 +54,15 @@ export default function UpdateForm({ selectedForm }) {
     const selectedOptions = Array.from(e.target.selectedOptions, (option) => option.value);
     setUpdatedForm({ ...updatedForm, Medicine: selectedOptions });
   };
-
+  
   const handleQuantityChange = (index, value) => {
-    const updatedQuantities = [...updatedForm.Quantity];
-    updatedQuantities[index] = value;
-    setUpdatedForm({ ...updatedForm, Quantity: updatedQuantities });
+    // Create a copy of the updatedForm state
+    const updatedFormData = { ...updatedForm };
+    // Update the quantity value at the specified index in the Quantity array
+    updatedFormData.Quantity[index] = value;
+    // Update the state with the modified form data
+    setUpdatedForm(updatedFormData);
+      
   };
 
   const handleSubmit = (e) => {
@@ -74,11 +92,10 @@ export default function UpdateForm({ selectedForm }) {
         <div className="form-group">
           <label htmlFor="Supplier">Supplier</label>
           <select className="form-control" id="supplier" name="Supplier" value={updatedForm.Supplier} onChange={handleChange}>
-            <option>Supplier 1</option>
-            <option>Supplier 2</option>
-            <option>Supplier 3</option>
-            <option>Supplier 4</option>
-            <option>Supplier 5</option>
+            <option value="">Select Supplier</option>
+            {suppliers.map((supplier, index) => (
+              <option key={index}>{supplier}</option>
+            ))}
           </select>
         </div>
         
@@ -116,7 +133,7 @@ export default function UpdateForm({ selectedForm }) {
                       type="number"
                       placeholder="QTY"
                       value={updatedForm.Quantity[index] || ""}
-                      onChange={(e) => handleQuantityChange(index, e.target.value)} // Pass index and value to handleQuantityChange
+                      onChange={(e) => handleQuantityChange(index, e.target.value)}
                     />
                   </td>
                 </tr>
