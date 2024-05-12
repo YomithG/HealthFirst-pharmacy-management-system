@@ -1,4 +1,3 @@
-//D:\Pasindi\SLIIT\Y2S2\ITP\express\frontend\src\pages\Cart.jsx
 import React from "react";
 import { useShoppingCartStore } from "./ShoppingCart";
 import Toast from "../../utils/Toast";
@@ -14,45 +13,17 @@ const ShoppingCart = () => {
   };
 
   const handleRemoveFromCart = (itemId) => {
-    removeFromCart(itemId);
-    Toast({ type: "success", message: "Item removed from cart" });
+    if (window.confirm('Are you sure you want to remove this item from your cart?')) {
+      removeFromCart(itemId);
+      Toast({ type: "success", message: "Item removed from cart" });
+    }
   };
 
-// const handleCheckout = async (e) => {
-//   e.preventDefault();
-
-//   // Create an array of objects with only the necessary properties
-//   const orderItems = cartItems.map(item => ({
-//     item_id: item._id,
-//     amount: item.price * item.quantity, // You might need to adjust this calculation based on your requirements
-//     total: item.price * item.quantity  // You might need to adjust this calculation based on your requirements
-//   }));
-
-//   try {
-//     const response = await fetch('/api/order', {
-//       method: 'POST',
-//       body: JSON.stringify(orderItems),
-//       headers: {
-//         'Content-Type': 'application/json'
-//       }
-//     });
-
-//     if (!response.ok) {
-//       const json = await response.json();
-//       throw new Error(json.error);
-//     }
-
-//     const newCartItems = await response.json();
-//     Toast({ type: "success", message: "Checkout successful" });
-//     resetCart();
-
-//   } catch (error) {
-//     Toast({ type: "error", message: error.message });
-//   }
-// };
-
-  
-
+  const handleResetCart = () => {
+    if (window.confirm('Are you sure you want to reset your cart?')) {
+      resetCart();
+    }
+  };
 
   return (
     <>
@@ -122,7 +93,7 @@ const ShoppingCart = () => {
                 )}
               </h4>
               <div>
-                <button className="btn btn-secondary" onClick={resetCart}>
+                <button className="btn btn-secondary" onClick={handleResetCart}>
                   Reset Cart
                 </button>
                 <a href="/checkout" className="btn btn-warning ms-2" >

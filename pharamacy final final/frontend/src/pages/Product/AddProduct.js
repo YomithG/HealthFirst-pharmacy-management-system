@@ -90,14 +90,15 @@ const AddProductForm = () => {
           required
         />
         <button
-          type="button"
-          onClick={handleImageUpload}
-          disabled={!file || percent === 100}
-          // add suitable color to the button
-          className="btn btn-outline-dark mt-2 btn-sm"
+        type="button"
+        onClick={handleImageUpload}
+        disabled={!file || percent === 100}
+        style={{ backgroundColor: '#28a745', color: '#fff', fontWeight: 'bold' }}
+        className={`btn mt-2 btn-sm`}
         >
-          Upload
+        Upload
         </button>
+
         <div className="progress mt-2">
           <div
             className={`progress-bar bg-success ${
@@ -160,34 +161,38 @@ const AddProductForm = () => {
       </div>
 
       <div className="form-group">
-        <label className="my-2" htmlFor="price">
-          Price
-        </label>
-        <input
-          type="number"
-          className="form-control"
-          id="price"
-          placeholder="Enter price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          required
-        />
-      </div>
+      <label className="my-2" htmlFor="price">
+      Price
+      </label>
+      <input
+    type="number"
+    className="form-control"
+    id="price"
+    placeholder="Enter price"
+    value={price}
+    onChange={(e) => setPrice(e.target.value)}
+    required
+    min="0" // Prevents negative values
+  />
+</div>
 
-      <div className="form-group">
-        <label className="my-2" htmlFor="countInStock">
-          Count in Stock
-        </label>
-        <input
-          type="number"
-          className="form-control"
-          id="countInStock"
-          placeholder="Enter count in stock"
-          value={countInStock}
-          onChange={(e) => setCountInStock(e.target.value)}
-          required
-        />
-      </div>
+<div className="form-group">
+  <label className="my-2" htmlFor="countInStock">
+    Count in Stock
+  </label>
+  <input
+    type="number"
+    className="form-control"
+    id="countInStock"
+    placeholder="Enter count in stock"
+    value={countInStock}
+    onChange={(e) => setCountInStock(e.target.value)}
+    required
+    min="0" // Prevents negative values
+    step="1" // Allows only whole numbers
+  />
+</div>
+
 
       <button type="submit" className="btn btn-primary mt-2">
         Add Product

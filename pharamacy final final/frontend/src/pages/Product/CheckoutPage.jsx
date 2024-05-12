@@ -15,12 +15,6 @@ const CheckoutPage = () => {
     0
   );
 
-  // credit card validation regex
-//   const cardNumberRegex =
-//     /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|2[2-7][0-9]{14}|3[47][0-9]{13}|65[0-9]{14}|6011[0-9]{12}|(644|645|646|647|648|649)[0-9]{13}|622(?:1[2-9]|[2-8][0-9]|9[01])[0-9]{10})$/;
-//   const expiryDateRegex = /^(0[1-9]|1[0-2])\/[0-9]{2}$/;
-//   const cvvRegex = /^[0-9]{3}$/;
-
   const redirectToDashboard = () => {
     navigate("/delivery-page");
   };
@@ -44,6 +38,9 @@ const CheckoutPage = () => {
       errorMessage("Error", error.message);
     },
   });
+
+  // Regular expression to match exactly 10 digits
+const contactNoRegExp = /^\d{10}$/;
 
   // Submit function
   const onSubmit = (values) => {
@@ -135,22 +132,28 @@ const CheckoutPage = () => {
         </div>
 
           {/* ContactNo */}
-        <div className="form-group">
-          <label className="my-2" htmlFor="contactNo">
-            Contact Nunmber
-          </label>
-          <input
-            placeholder="Contact Number"
-            type="number"
-            className="form-control"
-            id="contactNo"
-            name="contactNo"
-            {...register("contactNo", { required: true })}
-          />
-          {errors.contactNo && (
-            <small className="form-text text-danger">Contact Number is required</small>
-          )}
-        </div>
+      <div className="form-group">
+        <label className="my-2" htmlFor="contactNo">
+          Contact Number
+        </label>
+        <input
+          placeholder="Contact Number"
+          type="text" // Change type to text to allow leading zeros
+          className={`form-control ${errors.contactNo ? "is-invalid" : ""}`}
+          id="contactNo"
+          name="contactNo"
+          {...register("contactNo", {
+            required: "Contact Number is required",
+            pattern: {
+              value: contactNoRegExp,
+              message: "Please enter a valid 10-digit contact number"
+            }
+          })}
+        />
+        {errors.contactNo && (
+          <div className="invalid-feedback">{errors.contactNo.message}</div>
+        )}
+      </div>
 
         
         {/* Total Price */}
