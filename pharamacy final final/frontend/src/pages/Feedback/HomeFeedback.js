@@ -41,26 +41,33 @@ const HomeFeedback = () => {
     dispatch({ type: 'SET_FEEDBACKS', payload: updatedFeedbacks });
   };
 
-  return (
-    <div className="">
-      <div className="feedbacks">
-        <div className="average-rating">
-          <h3>Average Rating</h3>
-          {/* Render average rating using StarRating component */}
-          <StarRating rating={averageRating} />
-          {/* Optionally display the average rating value */}
-          <p>{averageRating.toFixed(2)} / 5</p>
-        </div>
-        {feedbacks &&
-          feedbacks.map((feedback) => (
-            <FeedbackDetails 
-              key={feedback._id} 
-              feedback={feedback} 
-              onUpdateFeedback={handleUpdateFeedback} // Pass the function to update feedback
-            />
-          ))}
-      </div>
-      <FeedbackForm />
+  return ( 
+  <div className="home-feedback-container" style={{ display: 'flex', justifyContent: 'space-between' }}>
+    <br></br>
+  {/* Form on the left side */}
+  <div className="feedback-form" style={{ width: '45%' }}>
+  <br></br>
+    <FeedbackForm />
+  </div>
+
+  {/* Feedbacks on the right side */}
+  <div className="feedbacks" style={{ width: '55%' }}>
+    <div className="average-rating">
+      <h3>Average Rating</h3>
+      {/* Render average rating using StarRating component */}
+      <StarRating rating={averageRating} />
+      {/* Optionally display the average rating value */}
+      <p>{averageRating.toFixed(2)} / 5</p>
+    </div>
+    {feedbacks &&
+      feedbacks.map((feedback) => (
+        <FeedbackDetails 
+          key={feedback._id} 
+          feedback={feedback} 
+          onUpdateFeedback={handleUpdateFeedback} // Pass the function to update feedback
+        />
+      ))}
+  </div>
       <Link to="/check-feedback">Check All Feedbacks</Link>
     </div>
   );

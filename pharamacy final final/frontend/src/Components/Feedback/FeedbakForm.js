@@ -60,6 +60,7 @@ const FeedbackForm = () => {
             className={value === selectedRating ? 'selected' : ''}
             onClick={() => handleRatingChange(value)}
             type="button"
+            
           >
             {value}
           </button>

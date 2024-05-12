@@ -1,4 +1,4 @@
-//D:\Pasindi\SLIIT\Y2S2\ITP\express\frontend\src\store\useShoppingCartStore.js
+
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
@@ -8,7 +8,7 @@ const initialState = {
 
 const shoppingCartStore = (set) => ({
   ...initialState,
-  // Action to add an item to the cart or update its quantity if it already exists
+  // add an item to the cart or update its quantity if it already exists
   addToCart: (newItem) =>
     set((state) => {
       const itemIndex = state.cartItems.findIndex(
@@ -32,19 +32,19 @@ const shoppingCartStore = (set) => ({
         return { cartItems: [...state.cartItems, newItem] };
       }
     }),
-  // Action to remove an item from the cart by _id
+  // remove an item from the cart by _id
   removeFromCart: (itemId) =>
     set((state) => ({
       cartItems: state.cartItems.filter((item) => item._id !== itemId),
     })),
-  // Action to update the quantity of a specific item in the cart
+  //update the quantity of a specific item in the cart
   updateItemQuantity: (itemId, quantity) =>
     set((state) => ({
       cartItems: state.cartItems.map((item) =>
         item._id === itemId ? { ...item, quantity: quantity } : item
       ),
     })),
-  // Action to reset the cart
+  //reset the cart
   resetCart: () => set(initialState),
 });
 
