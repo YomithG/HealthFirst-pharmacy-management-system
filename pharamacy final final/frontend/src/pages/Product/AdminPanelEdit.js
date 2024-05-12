@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-//import { toast } from 'react-toastify'; // Import toast from react-toastify
-//import 'react-toastify/dist/ReactToastify.css'; // Import the default styles
+import { toast } from 'react-toastify'; // Import toast from react-toastify
+import 'react-toastify/dist/ReactToastify.css'; // Import the default styles
 
 const AdminPanelEdit = () => {
   const [items, setItems] = useState([]);
