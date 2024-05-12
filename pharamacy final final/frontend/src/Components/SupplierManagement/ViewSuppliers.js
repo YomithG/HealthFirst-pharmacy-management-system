@@ -57,8 +57,9 @@ export default function ViewSuppliers() {
     // Customize the PDF content based on the form data
     doc.text(20, 20, `Supplier: ${form.Supplier}`);
     doc.text(20, 30, `Email: ${form.Email}`);
-    doc.text(20, 40, `Medicine: ${form.Medicine}`);
-    // Add more content as needed
+    doc.text(20, 40, `Medicine: ${form.Medicine}`);  
+    doc.text(20, 50, `Medicine Quantities: ${form.Quantity}`);
+    doc.text(20, 60, `Notes: ${form.Notes}`);
     doc.save(`${form.Supplier}_report.pdf`);
   };
 
