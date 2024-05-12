@@ -216,5 +216,16 @@ router.get("/demergedList", async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 });
+//supplier
+router.route("/suppliers").get(async (req, res) => {
+  try {
+    const suppliers = await Inventory.distinct("SupplierName");
+    res.status(200).json(suppliers);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server Error" });
+  }
+});
+
 
 module.exports = router;
