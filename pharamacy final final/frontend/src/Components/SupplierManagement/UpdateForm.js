@@ -5,11 +5,12 @@ import "./UpdateForm.css";
 
 export default function UpdateForm({ selectedForm }) {
   const [form, setForm] = useState({});
+
   const [updatedForm, setUpdatedForm] = useState({
     Supplier: "",
     Email: "",
     Medicine: [],
-    Quantities: {}, // Change Quantities to an object
+    Quantity: [], // Change Quantity to an array
     Notes: ""
   });
   const [error, setError] = useState("");
@@ -22,10 +23,7 @@ export default function UpdateForm({ selectedForm }) {
         setUpdatedForm({
           ...response.data.form,
           Medicine: Array.isArray(response.data.form.Medicine) ? response.data.form.Medicine : [response.data.form.Medicine],
-          Quantities: response.data.form.Quantity.reduce((acc, curr) => {
-            acc[curr.medicine] = curr.quantity;
-            return acc;
-          }, {})
+          Quantity: Array.isArray(response.data.form.Quantity) ? response.data.form.Quantity : [response.data.form.Quantity]
         });
       })
       .catch(error => {
@@ -40,23 +38,18 @@ export default function UpdateForm({ selectedForm }) {
 
   const handleMedicineChange = (e) => {
     const selectedOptions = Array.from(e.target.selectedOptions, (option) => option.value);
-    setUpdatedForm({ ...updatedForm, Medicine: selectedOptions, Quantities: {} });
+    setUpdatedForm({ ...updatedForm, Medicine: selectedOptions });
   };
 
-  const handleQuantityChange = (e, medicine) => {
-    const { value } = e.target;
-    setUpdatedForm(prevState => ({
-      ...prevState,
-      Quantities: {
-        ...prevState.Quantities,
-        [medicine]: parseInt(value) // Ensure the quantity is parsed as an integer
-      }
-    }));
+  const handleQuantityChange = (index, value) => {
+    const updatedQuantities = [...updatedForm.Quantity];
+    updatedQuantities[index] = value;
+    setUpdatedForm({ ...updatedForm, Quantity: updatedQuantities });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!updatedForm.Supplier || !updatedForm.Email || updatedForm.Medicine.length === 0 || !updatedForm.Notes) {
+    if (!updatedForm.Supplier || !updatedForm.Email || updatedForm.Medicine.length === 0 || updatedForm.Quantity.length === 0 || !updatedForm.Notes) {
       setError("Please fill in all required fields.");
       return;
     }
@@ -88,7 +81,7 @@ export default function UpdateForm({ selectedForm }) {
             <option>Supplier 5</option>
           </select>
         </div>
-
+        
         <div className="form-group">
           <label htmlFor="Email">Email</label>
           <input type="text" className="form-control" id="Email" name="Email" value={updatedForm.Email} onChange={handleChange} />
@@ -104,6 +97,7 @@ export default function UpdateForm({ selectedForm }) {
           </select>
         </div>
 
+        {/* Table for Medicines and Quantity */}
         <div className="form-group">
           <label htmlFor="orderItemsTable">Order Items:</label>
           <table id="orderItemsTable">
@@ -114,15 +108,15 @@ export default function UpdateForm({ selectedForm }) {
               </tr>
             </thead>
             <tbody>
-              {updatedForm.Quantity.map((medicine, index) => (
+              {updatedForm.Medicine.map((medicine, index) => (
                 <tr key={index}>
-                  <td>{medicine.medicine}</td>
+                  <td>{medicine}</td>
                   <td>
                     <input
                       type="number"
                       placeholder="QTY"
-                      value={medicine.quantity}
-                      onChange={(e) => handleQuantityChange(e, medicine)}
+                      value={updatedForm.Quantity[index] || ""}
+                      onChange={(e) => handleQuantityChange(index, e.target.value)} // Pass index and value to handleQuantityChange
                     />
                   </td>
                 </tr>
@@ -135,7 +129,7 @@ export default function UpdateForm({ selectedForm }) {
           <label htmlFor="Notes">Notes</label>
           <textarea className="form-control" id="Notes" name="Notes" rows="4" value={updatedForm.Notes} onChange={handleChange} />
         </div>
-
+        
         <button type="submit" className="btn btn-primary">Update</button>
         {error && <div className="alert alert-danger mt-2">{error}</div>}
         {successMessage && <div className="alert alert-success mt-2">{successMessage}</div>}
