@@ -11,14 +11,14 @@ const ShoppingCart = () => {
     quantity = Math.max(1, quantity);
     updateItemQuantity(itemId, quantity);
   };
-
+  //remove from cart
   const handleRemoveFromCart = (itemId) => {
     if (window.confirm('Are you sure you want to remove this item from your cart?')) {
       removeFromCart(itemId);
       Toast({ type: "success", message: "Item removed from cart" });
     }
   };
-
+  //reset the cart
   const handleResetCart = () => {
     if (window.confirm('Are you sure you want to reset your cart?')) {
       resetCart();
