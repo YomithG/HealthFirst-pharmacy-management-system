@@ -88,7 +88,8 @@ const ShoppingCart = () => {
               <h4 className=" text-end">
                 Total: Rs.
                 {cartItems.reduce(
-                  (total, item) => total + item?.price * item?.quantity,
+
+                  (total, item) => total + item?.price * item?.quantity, //calculate total price
                   0
                 )}
               </h4>
