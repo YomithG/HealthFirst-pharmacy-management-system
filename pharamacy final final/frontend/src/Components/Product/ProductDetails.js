@@ -4,7 +4,13 @@ import "./ProductDetails.css";
 import Toast from "../../utils/Toast";
 const ItemDetails = ({ item }) => {
   const [quantity, setQuantity] = useState(1);
-  //
+  const [isHovering, setIsHovering] = useState(false);
+  const handleMouseOver = () => {
+    setIsHovering(true);
+  };
+  const handleMouseOut = () => {
+    setIsHovering(false);
+  };
   const { addToCart } = useShoppingCartStore();
   //
   const handleAddToCart = () => {
@@ -17,23 +23,36 @@ const ItemDetails = ({ item }) => {
   };
   return (
     <div className="item-details">
+      <div
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+        className={item.countInStock === 0 ? "out-of-stock": ""}>
+      {item.countInStock === 0 && (
+        <div className="out-of-stock-label">Out of Stock </div>
+      )}
       <h4>{item.title}</h4>
       <img src={item.image} alt={item.title} />
-      <p className="p123">
-        {item.description}
-      </p>
       <p className="p123"><h6>
-        <strong>Category: </strong>
-        {item.category}</h6>
-      </p>
-      <p className="p123"><h6>
-        <strong>Price: Rs. </strong>
+        <strong>Rs. </strong>
         {item.price}</h6>
       </p>
+      </div>
+      {isHovering && (
+        <div>
+          <p className="pc123"><h6>
+        {item.category}</h6>
+      </p>
+          <p className="p123">
+        {item.description}
+      </p>
+      
       <p className="p123"><h6>
         <strong>Stock: </strong>
         {item.countInStock}</h6>
       </p>
+        </div>
+      )}
+      
       <input
         type="number"
         value={quantity}
@@ -42,7 +61,9 @@ const ItemDetails = ({ item }) => {
         min="1"
         max={item?.countInStock}
       />
-      <button onClick={handleAddToCart} disabled={item?.countInStock === 0}>
+      <button onClick={handleAddToCart} 
+      disabled={item?.countInStock === 0}
+      className="btnAdd">
         Add to Cart
       </button>
     </div>
