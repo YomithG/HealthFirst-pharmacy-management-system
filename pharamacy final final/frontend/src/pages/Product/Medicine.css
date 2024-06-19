@@ -27,7 +27,7 @@
 }
 .bannerbc1{
     position: relative;
-    height: 525px;
+    height: 550px;
 }
 .bannerimg1{
     position: absolute;
@@ -53,7 +53,7 @@
     justify-content: center;
 }
 .bannertext1{
-    text-decoration: underline;
+    /* text-decoration: underline; */
     font-size: 60px;
     color: white;
 }
@@ -63,7 +63,7 @@
     color: #99ccc1;
 }
 .categoriesC1{
-    background-color: #DDD0C8;
+    background-color: #ada8a5;
     align-items: center;
     padding-left: 15px;
 }

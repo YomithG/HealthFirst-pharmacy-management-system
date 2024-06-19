@@ -59,7 +59,7 @@ const Medicine = () => {
       <div>
         <div className="bannerbc1">
           <img
-            src={require('../Product/pexels-shvets-production-7545220.jpg')}
+            src={require('../Product/pexels-alex-green-5692697.jpg')}
             alt="Background" className="bannerimg1"
           />
           <div className="bannertextc1">
@@ -73,7 +73,7 @@ const Medicine = () => {
           </div>
         </div>
         <div className="categoriesC1"><br/>
-        <h3 style={{ padding: '0px 5px' }}>Popular Categories</h3>
+        <h3 style={{ padding: '0px 5px', textAlign:'center' }}>Popular Categories</h3><br/>
         <Row xs={1} md={5} className="g-4"style={{ maxWidth: '2000px', margin: '0 auto' }}>
         <br/>
 
@@ -102,7 +102,7 @@ const Medicine = () => {
             alt="vitamins & suppliments" className="imgcs"/>
             <h4>Vitamins &<br/>Suppliments</h4>
           </Col>
-        </Row >
+        </Row ><br/>
           <h3 style={{ padding: '0px 5px',textAlign:'center' }}>Shop Medicines by Categories</h3>
           {categories.map((category) => (
             <button className="btnc m-2 categorybtn1"
@@ -137,15 +137,30 @@ const Medicine = () => {
             </Col>
           ))}
         </Row>
-        {/* Add a button or link to open another webpage inside the iframe */}
-        <Button onClick={() => setIframeUrl("http://127.0.0.1:1880/ui/#!/0?socketid=JXTmUNQoDvEFbNBUAAAB")}>Open Example.com</Button>
-        {/* Conditionally render the iframe */}
-        {iframeUrl && (
-          <div style={{ border: '1px solid #ccc', padding: '10px', marginTop: '20px' }}>
-            <iframe src={iframeUrl} style={{ width: '100%', height: '500px' }} title="Embedded Page"></iframe>
-          </div>
-        )}
+        
       </div>
+      <footer style={{ 
+        backgroundColor: '#333', 
+        color: '#fff', 
+        textAlign: 'center', 
+        padding: '50px 0' }}>
+        <div>
+          <h2>Our Pharmacy</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div>
+          <h2>Follow Us</h2>
+          <div>
+            <a href="#facebook">Facebook</a> | <a href="#twitter">Twitter</a> | <a href="#instagram">Instagram</a>
+          </div>
+        </div>
+        <div>
+          <h2>Contact Us</h2>
+          <p>Email: info@example.com</p>
+          <p>Phone: 123-456-7890</p>
+          <p>Address: 123 Main Street, City, Country</p>
+        </div>
+      </footer>
     </>
   );
 };
