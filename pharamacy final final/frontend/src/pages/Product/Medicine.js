@@ -74,7 +74,7 @@ const Medicine = () => {
         </div>
         <div className="categoriesC1"><br/>
         <h3 style={{ padding: '0px 5px' }}>Popular Categories</h3>
-        <Row xs={1} md={5} className="g-4">
+        <Row xs={1} md={5} className="g-4"style={{ maxWidth: '2000px', margin: '0 auto' }}>
         <br/>
 
           <Col className="pc-1">
@@ -102,7 +102,7 @@ const Medicine = () => {
             alt="vitamins & suppliments" className="imgcs"/>
             <h4>Vitamins &<br/>Suppliments</h4>
           </Col>
-        </Row>
+        </Row >
           <h3 style={{ padding: '0px 5px',textAlign:'center' }}>Shop Medicines by Categories</h3>
           {categories.map((category) => (
             <button className="btnc m-2 categorybtn1"
@@ -130,7 +130,7 @@ const Medicine = () => {
         </h2>
         {/* view product details */}
 
-        <Row xs={1} md={4} className="g-4">
+        <Row xs={1} md={4} className="g-4" style={{ maxWidth: '2000px', margin: '0 auto' }}>
           {filteredItems.map((item) => (
             <Col key={item._id}>
               <ItemDetails item={item} />
