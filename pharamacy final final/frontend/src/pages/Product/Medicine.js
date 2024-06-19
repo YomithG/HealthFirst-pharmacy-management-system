@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import ItemDetails from "../../Components/Product/ProductDetails";
 import Navbar from "../../Components/Product/Navbar";
+import "./Medicine.css"
 
 const Medicine = () => {
   const [items, setItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [iframeUrl, setIframeUrl] = useState("");
-
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -32,86 +32,119 @@ const Medicine = () => {
     item.category.toLowerCase().includes(searchTerm.toLowerCase())) &&
     (selectedCategory === "" || item.category === selectedCategory)
   );
-  //unique categories
+  // unique categories
   const categories = [...new Set(items.map(item => item.category))]
 
   return (
-    <>
-     <div >
-      <div style={{alignItems: 'center', height:'500px',display:'flex',backgroundColor:'#75a79f'}}>
-          <img src={require('../Product/Pharmacist-cuate.png')}
-        style={{width: '1000px',height:'550px' }}/>
-        <div style={{ marginRight: '50px', paddingLeft: '100px', textAlign:'center' , width:'30%'}}>
-          {/* <img src={require('../Product/introducing-healthfirst-the-friendly-and-approacha-igGtJ2HnTK2Xmx8sIK36wg-ehGR2NHFRI2M0v6kyJgxcQ.jpeg')}
-          style={{width:'100px'}}/> */}
-          <h1 style={{textDecorationLine:'underline',fontSize:'60px'}}>Your Health, Delivered</h1><br/><br/>
-          <h2 style={{fontStyle:'italic', fontSize:'35px'}}>Click, Order & Heal!</h2>
+    <><br/><br/>
+    {/* search field */}
+    <div className="navbar navbar-expand-lg navbar-light bg-light nav11"> 
+    <Row className="justify-content-center align-items-start">
+            <Col className="searchc1">
+              <Form className="d-flex align-items-start p-0 m-0 searchf1">
+                <Form.Control
+                  type="search"
+                  placeholder="Search"
+                  className="m-0 p-0 custom-placeholder-padding"
+                  aria-label="Search"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <div className="d-flex align-items-start searchbtngr1" >
+                  <Button className="searchbtn1">Search</Button>
+                </div>
+              </Form>
+            </Col>
+          </Row></div><br/><br/>
+      <div>
+        <div className="bannerbc1">
+          <img
+            src={require('../Product/pexels-shvets-production-7545220.jpg')}
+            alt="Background" className="bannerimg1"
+          />
+          <div className="bannertextc1">
+            <h1 className="bannertext1">
+              Your Health, Delivered
+            </h1>
+            <br />
+            <h2 className="bannertext2" >
+              Click, Order & Heal!
+            </h2>
+          </div>
         </div>
-        </div>
-        <br />
-      {/* search field */}
-        <Row className="justify-content-center align-items-start">
-          <Col sm={4}>
-            
-            <Form className="d-flex align-items-start p-0 m-0" style={{width:'500px', padding:'0px 10px'}}>
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="m-0 p-0 custom-placeholder-padding"
-                aria-label="Search"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              
-              <div  className="d-flex align-items-start" style={{padding:'0px 5px'}}>
-              <Button style={{height:'40px', padding:'0px 10px'}}>Search</Button>
-              </div>
-              <style jsx>{`.custom-placeholder-padding::placeholder {
-              padding-left: 10px; }`}</style>
-            </Form>
+        <div className="categoriesC1"><br/>
+        <h3 style={{ padding: '0px 5px' }}>Popular Categories</h3>
+        <Row xs={1} md={5} className="g-4">
+        <br/>
+
+          <Col className="pc-1">
+            <img src="https://th.bing.com/th/id/OIP.CyxXA79QfOn2hBRZM_eVTQHaFS?w=252&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+            alt="vitamins & suppliments" className="imgcs"/>
+            <h4>Vitamins &<br/>Suppliments</h4>
+          </Col>
+          <Col className="pc-1">
+            <img src="https://th.bing.com/th/id/OIP.fH6SUvEbko1IhxXz6ns5ewHaHa?w=199&h=199&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+            alt="Mom & Baby care" className="imgcs"/>
+            <h4>Mom &<br/>Baby care</h4>
+          </Col>
+          <Col className="pc-1">
+            <img src="https://th.bing.com/th/id/OIP.ywx-BDJTwqcEW96rveG7hwHaE7?w=224&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+            alt="personal care & beauty" className="imgcs"/>
+            <h4>Personal care<br/>& Beauty</h4>
+          </Col>
+          <Col className="pc-1">
+            <img src="https://th.bing.com/th/id/OIP.HgsnNqWVU6UcMh5WY6p5ogHaHa?w=150&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+            alt="weight loss & fitness" className="imgcs"/>
+            <h4>Weight-loss<br/>& Fitness</h4>
+          </Col>
+          <Col className="pc-1">
+            <img src="https://th.bing.com/th/id/OIP.CyxXA79QfOn2hBRZM_eVTQHaFS?w=252&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+            alt="vitamins & suppliments" className="imgcs"/>
+            <h4>Vitamins &<br/>Suppliments</h4>
           </Col>
         </Row>
-        {/* https://storyset.com/illustration/pharmacist/cuate#FFC100FF&hide=&hide=complete 
-        https://i.pinimg.com/originals/23/35/84/233584c2f6b5b680fb1f3a6a53589138.jpg*/}
-
-      <h3 style={{padding:'0px 20px'}}>Popular Categories</h3>
-      {categories.map((category) => (
-        <button className="btnc m-2"
-          key={category}
-          onClick={() => setSelectedCategory(category)}
-          variant = {selectedCategory === category? "primary": "outline-primary"}
-          style={{padding: '8px 8px', color: 'black', backgroundColor: '#effff2',
-          border: 'none', borderRadius: '5px',cursor: 'pointer'}}>
-          {category}
-        </button>
-        ))}
-      <br></br>
-      <Button
-          className="btnc m-2"
-          onClick={() => setSelectedCategory("")}
-          variant={selectedCategory === "" ? "primary" : "outline-primary"}
-          style={{padding: '8px 8px', color: 'black', backgroundColor: '#fef6de',
-          border: 'none', borderRadius: '5px',cursor: 'pointer'}}
-        >
-          All Categories
-        </Button>
-      <br /><br />
-      {/* view product details */}
-      <Row xs={1} md={3} className="g-4">
-        {filteredItems.map((item) => (
-          <Col key={item._id}>
-            <ItemDetails item={item} />
-          </Col>
-        ))}
-      </Row>
-      {/* Add a button or link to open another webpage inside the iframe */}
-      <Button onClick={() => setIframeUrl("http://127.0.0.1:1880/ui/#!/0?socketid=JXTmUNQoDvEFbNBUAAAB")}>Open Example.com</Button>
-      {/* Conditionally render the iframe */}
-      {iframeUrl && (
-        <div style={{ border: '1px solid #ccc', padding: '10px', marginTop: '20px' }}>
-          <iframe src={iframeUrl} style={{ width: '100%', height: '500px' }} title="Embedded Page"></iframe>
+          <h3 style={{ padding: '0px 5px',textAlign:'center' }}>Shop Medicines by Categories</h3>
+          {categories.map((category) => (
+            <button className="btnc m-2 categorybtn1"
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              variant={selectedCategory === category ? "primary" : "outline-primary"}
+            >
+              {category}
+            </button>
+          ))}
+          <br></br>
+          <Button
+            className="btnc m-2 allCategorybtn"
+            onClick={() => setSelectedCategory("")}
+            variant={selectedCategory === "" ? "primary" : "outline-primary"}
+            
+          >
+            All Categories
+          </Button>
         </div>
-      )}
+        <br />
+        {/* Display selected category */}
+        <h2 className="headerProducts1">
+          {selectedCategory === "" ? "More to Explore" : selectedCategory}
+        </h2>
+        {/* view product details */}
+
+        <Row xs={1} md={4} className="g-4">
+          {filteredItems.map((item) => (
+            <Col key={item._id}>
+              <ItemDetails item={item} />
+            </Col>
+          ))}
+        </Row>
+        {/* Add a button or link to open another webpage inside the iframe */}
+        <Button onClick={() => setIframeUrl("http://127.0.0.1:1880/ui/#!/0?socketid=JXTmUNQoDvEFbNBUAAAB")}>Open Example.com</Button>
+        {/* Conditionally render the iframe */}
+        {iframeUrl && (
+          <div style={{ border: '1px solid #ccc', padding: '10px', marginTop: '20px' }}>
+            <iframe src={iframeUrl} style={{ width: '100%', height: '500px' }} title="Embedded Page"></iframe>
+          </div>
+        )}
       </div>
     </>
   );

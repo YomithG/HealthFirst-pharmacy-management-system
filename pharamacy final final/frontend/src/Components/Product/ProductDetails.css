@@ -15,6 +15,11 @@
   width: 100%; /* Ensure the width is responsive */
   max-width: 100%;
 }
+.itemImg{
+  height: 150px;
+  width: 200px;
+  object-fit: cover;
+}
 .out-of-stock{
   position: relative;
   opacity: 0.6;
@@ -99,6 +104,5 @@
 }
 .btnAdd{
   font-weight: normal;
-  color: #75a79f;
 }
 
