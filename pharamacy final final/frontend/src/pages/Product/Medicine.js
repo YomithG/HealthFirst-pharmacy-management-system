@@ -59,7 +59,7 @@ const Medicine = () => {
       <div>
         <div className="bannerbc1">
           <img
-            src={require('../Product/pexels-alex-green-5692697.jpg')}
+            src={require('../Product/Images/pexels-alex-green-5692697.jpg')}
             alt="Background" className="bannerimg1"
           />
           <div className="bannertextc1">

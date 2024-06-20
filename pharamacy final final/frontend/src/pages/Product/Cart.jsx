@@ -29,7 +29,7 @@ const ShoppingCart = () => {
     <><br/><br/>
 <div className="bannerbc12" style={{ position: 'relative', height: '200px', width: '100%' }}>
   <img
-    src={require('../Product/pexels-rdne-5637739.jpg')}
+    src={require('../Product/Images/pexels-rdne-5637739.jpg')}
     alt="Background"
     className="bannerimg1"
     style={{ height: '100%', objectFit: 'cover', width: '100%' }}

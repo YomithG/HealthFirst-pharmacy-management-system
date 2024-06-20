@@ -69,7 +69,7 @@ const CheckoutPage = () => {
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px' }}>
       <div style={{ width: '45%',position:'relative' }}>
         <img
-          src={require('../Product/pexels-norma-mortenson-4393517.jpg')}
+          src={require('../Product/Images/pexels-norma-mortenson-4393517.jpg')}
           alt="Side Image"
           style={{ width: '100%', height: 'auto', objectFit: 'cover',opacity:'0.4' }}
         />
