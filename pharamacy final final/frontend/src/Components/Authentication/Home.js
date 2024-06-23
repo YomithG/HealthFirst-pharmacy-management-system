@@ -45,7 +45,11 @@ const Home = () => {
       </section>
 
       {/* Footer section */}
-      <footer style={{ backgroundColor: '#333', color: '#fff', textAlign: 'center', padding: '50px 0' }}>
+      <footer style={{ 
+        backgroundColor: '#333', 
+        color: '#fff', 
+        textAlign: 'center', 
+        padding: '50px 0' }}>
         <div>
           <h2>Our Pharmacy</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

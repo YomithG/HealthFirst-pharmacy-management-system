@@ -75,8 +75,9 @@ const AddProductForm = () => {
   return (
     // align the form in the center with a width of 50%
     <form style={{ width: "50%", margin: "auto" }} onSubmit={handleSubmit}>
+      <br/><br/><br/><br/>
       <h3>Add a new Product</h3>
-
+      <br/><br/>
       {/* //upload image */}
       <div className="form-group">
         <label className="my-2" htmlFor="image">

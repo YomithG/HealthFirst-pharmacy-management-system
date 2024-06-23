@@ -26,12 +26,42 @@ const ShoppingCart = () => {
   };
 
   return (
-    <>
+    <><br/><br/>
+<div className="bannerbc12" style={{ position: 'relative', height: '200px', width: '100%' }}>
+  <img
+    src={require('../Product/Images/pexels-rdne-5637739.jpg')}
+    alt="Background"
+    className="bannerimg1"
+    style={{ height: '100%', objectFit: 'cover', width: '100%' }}
+  />
+  <div style={{ 
+    position: 'absolute', 
+    top: 0, 
+    left: 0, 
+    width: '100%', 
+    height: '100%', 
+    backgroundColor: 'rgba(255, 255, 255, 0.5)', 
+    zIndex: '1' 
+  }}></div>
+  <div className="bannertextc12" style={{ 
+    position: 'absolute', 
+    top: '50%', 
+    left: '50%', 
+    transform: 'translate(-50%, -50%)', 
+    zIndex: '2' 
+  }}>
+    <h1 style={{ color: 'rgb(71, 97, 48)', padding: '10px' }}>
+    "Make health a Priority"</h1>
+  </div>
+</div>
+
+
       <div className="mt-3">
-        <h2 className="mb-3">Shopping Cart</h2>
+        <h2 className="mb-3">Shopping Cart ({cartItems.length})</h2>
         {cartItems.length > 0 ? (
           <>
-            <table style={{ width: "100%" }} className="table table-bordered">
+          <div style={{alignItems:'center',padding:'0px 60px'}}>
+            <table style={{ width: "100%",}} className="table table-bordered">
               <thead>
                 <tr>
                   <th scope="col">Item</th>
@@ -74,6 +104,7 @@ const ShoppingCart = () => {
                     <td>
                       <button
                         className="btn btn-danger"
+                        style={{padding:'7px 20px', borderRadius:'10px'}}
                         onClick={() => handleRemoveFromCart(item?._id)}
                       >
                         Remove
@@ -83,6 +114,7 @@ const ShoppingCart = () => {
                 ))}
               </tbody>
             </table>
+            
             <hr />
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <h4 className=" text-end">
@@ -94,13 +126,15 @@ const ShoppingCart = () => {
                 )}
               </h4>
               <div>
-                <button className="btn btn-secondary" onClick={handleResetCart}>
-                  Reset Cart
+                <button className="btn btn-secondary" onClick={handleResetCart}
+                style={{padding:'7px 20px', borderRadius:'10px'}}>
+                  <h6>Reset Cart</h6>
                 </button>
-                <a href="/checkout" className="btn btn-warning ms-2" >
-                  Checkout
+                <a href="/checkout" className="btn btn-warning ms-2"style={{padding:'7px 20px', borderRadius:'10px'}} >
+                <h6>Checkout</h6>
                 </a>
               </div>
+            </div>
             </div>
           </>
         ) : (
