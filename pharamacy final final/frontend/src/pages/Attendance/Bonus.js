@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BonusForm from '../../Components/Attendance/BonusForm';
-import './Bonus.css'
+//import './Bonus.css'
 
 const BonusPage = () => {
     const [bonuses, setBonuses] = useState([]);

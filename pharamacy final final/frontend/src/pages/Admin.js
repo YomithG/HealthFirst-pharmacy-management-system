@@ -9,20 +9,23 @@ import AllNewMedicines from '../Components/Inventory/AllNewMedicines';
 import HomeComplaints from './Inquiry/HomeComplaints';
 import CheckComplaints from './Inquiry/checkComplaints';
 import ViewSuppliers from '../Components/SupplierManagement/ViewSuppliers';
+
 import Dashboard from './SalaryManagement/Dashboard';
-import Home from './SalaryManagement/Home';
+// import Home from './SalaryManagement/Home';
+import Calculate_Salary from './SalaryManagement/Home'
 import Attendance from './SalaryManagement/Attendance';
 import Leave from './SalaryManagement/Leave';
 import SalaryReport from './SalaryManagement/SalaryReport';
 import BonusReport from './SalaryManagement/BonusReport';
 import AttendanceEmp from './SalaryManagement/AttendanceEmp';
 import LeavesEmp from './SalaryManagement/LeavesEmp';
+
 import AddDelivery from '../Components/Delivery/AddDelivery';
 import GetDelivery from '../Components/Delivery/GetDelivery';
 
 import CheckFeedback from './Feedback/FeedbackCheck';
 import AdminPanelEdit from './Product/AdminPanelEdit';
-import BonusPage from './Attendance/Bonus';
+//import Bonus from './SalaryManagement/BonusReport';
 import AllEmployee from '../Components/Authentication/AllEmployee';
 import DeliveryPage from './Product/DeliveryPage';
 
@@ -39,13 +42,17 @@ const Admin = () => {
         
         { id: 'tab9', name: 'Check Complaints', url: '/check-complaints' },
         { id: 'tab23', name: 'Feedback', url: '/check-feedback' },
-        { id: 'tab12', name: 'Salary Management', url: '/salary-dashboard' },
-        { id: 'tab25', name: 'Mark Attendance', url: '/mark-attendance' },  
-        { id: 'tab14', name: 'View Attendance', url: '/attendance' },
-        { id: 'tab26', name: 'Add Leave', url: '/add-leave' }, 
-        { id: 'tab15', name: 'View Leaves', url: '/leave' },
-        { id: 'tab16', name: 'Salary Report', url: '/salaryReport' },
-        { id: 'tab17', name: 'Bonus Report', url: '/bonusReport' },
+
+        { id: 'tab12', name: 'View Salary', url: '/salary-dashboard' },
+        { id: 'tab13', name: 'Calculate Salary', url: '/salary-home' },
+        { id: 'tab25', name: 'Attendance', url: '/mark-attendance' }, 
+        { id: 'tab26', name: 'Leave', url: '/add-leave' },  
+        { id: 'tab16', name: 'Salary Report', url: '/salary' },
+        { id: 'tab17', name: 'Bonus Report', url: '/bonus-report' },
+        { id: 'tab14', name: 'AttendanceEmp', url: '/attendance' },
+        { id: 'tab15', name: 'LeavesEmp', url: '/leave' },
+        
+
         { id: 'tab6', name: 'Inventory', url: '/add/inventoryList' },
         { id: 'tab3', name: 'Customers', url: '/view-customers' },
         { id: 'tab7', name: 'Medicine List', url: '/add/medicineList' },
@@ -96,19 +103,20 @@ const Admin = () => {
                 {activeTab === 'tab23' && <CheckFeedback />}
 
                 {activeTab === 'tab12' && <Dashboard />}
+                {activeTab === 'tab13' && <Calculate_Salary />}
                 {activeTab === 'tab14' && <Attendance />}
                 {activeTab === 'tab15' && <Leave />}
                 {activeTab === 'tab16' && <SalaryReport />}
-                {activeTab === 'tab17' && <BonusPage />}
+                {activeTab === 'tab17' && <BonusReport />}
                 
           
                 {activeTab === 'tab6' && <AllInventoryMedicines />}
                 {activeTab === 'tab7' && <AllNewMedicines />}
 
                 {activeTab === 'tab10' && <ViewSuppliers />}
+
                 {activeTab === 'tab25' && <AttendanceEmp />}
                 {activeTab === 'tab26' && <LeavesEmp />}
-                {activeTab === 'tab19' && < LeavesEmp/>}
 
                 {activeTab === 'tab24' && <AdminPanelEdit />}
                 
