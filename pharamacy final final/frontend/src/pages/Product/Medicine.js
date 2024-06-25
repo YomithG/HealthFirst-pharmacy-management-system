@@ -3,12 +3,13 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import ItemDetails from "../../Components/Product/ProductDetails";
 import Navbar from "../../Components/Product/Navbar";
 import "./Medicine.css"
+import { useNavigate } from "react-router-dom";
 
 const Medicine = () => {
   const [items, setItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [iframeUrl, setIframeUrl] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -34,6 +35,10 @@ const Medicine = () => {
   );
   // unique categories
   const categories = [...new Set(items.map(item => item.category))]
+
+  const handleCategoryClick = (route) => {
+    navigate(route);
+  };
 
   return (
     <><br/><br/>
@@ -77,12 +82,12 @@ const Medicine = () => {
         <Row xs={1} md={5} className="g-4"style={{ maxWidth: '2000px', margin: '0 auto' }}>
         <br/>
 
-          <Col className="pc-1">
+          <Col className="pc-1" onClick={() => handleCategoryClick('/vitamins')}>
             <img src="https://th.bing.com/th/id/OIP.CyxXA79QfOn2hBRZM_eVTQHaFS?w=252&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
             alt="vitamins & suppliments" className="imgcs"/>
             <h4>Vitamins &<br/>Suppliments</h4>
           </Col>
-          <Col className="pc-1">
+          <Col className="pc-1" onClick={() => handleCategoryClick('/babycare')}>
             <img src="https://th.bing.com/th/id/OIP.fH6SUvEbko1IhxXz6ns5ewHaHa?w=199&h=199&c=7&r=0&o=5&dpr=1.3&pid=1.7"
             alt="Mom & Baby care" className="imgcs"/>
             <h4>Mom &<br/>Baby care</h4>

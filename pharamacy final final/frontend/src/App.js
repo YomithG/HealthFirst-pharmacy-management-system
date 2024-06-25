@@ -8,7 +8,7 @@ import AllNewMedicines from './Components/Inventory/AllNewMedicines';
 import CheckComplaints from './pages/Inquiry/checkComplaints';
 import AllForms from './Components/SupplierManagement/ViewSuppliers';
 import Attendance from './pages/SalaryManagement/Attendance';
-import Medicine from './pages/Product/Medicine';
+
 import Leave from './pages/SalaryManagement/Leave';
 import SalaryReport from './pages/SalaryManagement/SalaryReport';
 import BonusReport from './pages/SalaryManagement/BonusReport';
@@ -27,11 +27,11 @@ import HomeFeedback from './pages/Feedback/HomeFeedback';
 import HomeComplaints from './pages/Inquiry/HomeComplaints';
 
 
-
-
-
 // import AddItem from './pages/AddItem';
 import DelievryDetailsForm from "./Components/Product/oDetails";
+import Medicine from './pages/Product/Medicine';
+import Babycare from './pages/Product/Categories/Babycare';
+import Vitamins from './pages/Product/Categories/Vitamins';
 
 import Cart from "./pages/Product/Cart";
 import CheckoutPage from "./pages/Product/CheckoutPage";
@@ -69,6 +69,8 @@ function App() {
 
             <Route path="/" element={<Admin />} />
             <Route path="/medicine" element={<Medicine />} />
+            <Route path='/babycare' element={<Babycare />} />
+            <Route path='/vitamins' element={<Vitamins />} />
             <Route path="/admin" element={<Admin />} />
 
             <Route path="/cart" element={<Cart />} />
