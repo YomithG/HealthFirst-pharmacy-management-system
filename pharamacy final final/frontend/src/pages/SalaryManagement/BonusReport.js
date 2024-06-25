@@ -1,80 +1,99 @@
 import React, { useState, useEffect } from 'react';
-import { useSalaryContext } from '../../hooks/useSalaryContext';
 import './SalaryManagement.css';
+import BonusForm from '../../Components/SalaryManagement/BonusForm';
 
 const BonusReport = () => {
-    const { dispatch } = useSalaryContext();
-    const [bonuses, setBonuses] = useState({});
-    const [loading, setLoading] = useState(true);
+    const [bonuses, setBonuses] = useState([]);
 
-    // Fetch bonus data from the server
     useEffect(() => {
         const fetchBonuses = async () => {
             try {
-                const response = await fetch('http://localhost:8070/api/bonuses');
+                const response = await fetch('/api/bonus');
                 const data = await response.json();
-                setBonuses(data);
-                setLoading(false);
+                setBonuses(data); // Update state with fetched data
             } catch (error) {
-                console.error('Error fetching bonuses:', error);
-                setLoading(false);
+                console.error('Error fetching bonus data:', error);
             }
         };
-
+    
         fetchBonuses();
     }, []);
+    
 
-    const handleBonusChange = (e, month) => {
-        const updatedBonuses = { ...bonuses, [month]: e.target.value };
-        setBonuses(updatedBonuses);
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
+    const handleFormSubmit = async (data) => {
         try {
-            const response = await fetch('http://localhost:8070/api/bonuses', {
+            const response = await fetch('/api/bonus', {
                 method: 'POST',
-                body: JSON.stringify(bonuses),
                 headers: {
                     'Content-Type': 'application/json',
                 },
+                body: JSON.stringify(data),
             });
-
             if (response.ok) {
-                const data = await response.json();
-                dispatch({ type: 'UPDATE_BONUSES', payload: data });
+                const newBonus = await response.json();
+                setBonuses([...bonuses, newBonus]); // Add new bonus to bonuses state
             } else {
-                console.error('Failed to update bonuses:', response.statusText);
+                console.error('Failed to submit bonus form:', response.statusText);
             }
         } catch (error) {
-            console.error('Error updating bonuses:', error);
+            console.error('Error submitting bonus form:', error);
         }
     };
+    
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    const tableStyle = {
+        width: '100%',
+        borderCollapse: 'collapse',
+        marginBottom: '20px',
+    };
+    
+    const thStyle = {
+        backgroundColor: '#f2f2f2',
+        padding: '12px',
+        textAlign: 'left',
+        borderBottom: '1px solid #ddd',
+    };
+    
+    const tdStyle = {
+        padding: '12px',
+        borderBottom: '1px solid #ddd',
+    };
+
+    const tableContainerStyle = {
+        maxWidth: '800px',
+        margin: 'auto',
+    };
 
     return (
         <div>
-            <h2>Bonus Report</h2>
-            <form onSubmit={handleSubmit}>
-                {Object.keys(bonuses).map((month) => (
-                    <div key={month}>
-                        <label htmlFor={month}>{month}: </label>
-                        <input
-                            type="number"
-                            id={month}
-                            value={bonuses[month]}
-                            onChange={(e) => handleBonusChange(e, month)}
-                        />
-                    </div>
-                ))}
-                <button type="submit">Submit</button>
-            </form>
+            <h2 style={{ textAlign: 'center' }}>Bonus Details</h2>
+            <BonusForm onSubmit={handleFormSubmit} />
+            <div style={tableContainerStyle}>
+                <h3>Bonus Table</h3>
+                <table style={tableStyle}>
+                    <thead>
+                        <tr>
+                            <th style={thStyle}>Bonus ID</th>
+                            <th style={thStyle}>Month</th>
+                            <th style={thStyle}>Year</th>
+                            <th style={thStyle}>Bonus Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {bonuses.map((bonus) => (
+                            <tr key={bonus.bonusID}>
+                                <td style={tdStyle}>{bonus.bonusID}</td>
+                                <td style={tdStyle}>{bonus.month}</td>
+                                <td style={tdStyle}>{bonus.year}</td>
+                                <td style={tdStyle}>{bonus.bonusAmount}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
+    
 };
 
 export default BonusReport;

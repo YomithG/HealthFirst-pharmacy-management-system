@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AttendanceForm from '../components/AttendanceForm';
-import axios from 'axios'; // Assuming you're using axios for HTTP requests
+import axios from 'axios'; 
 
 const AttendanceEmp = () => {
   const [submissionStatus, setSubmissionStatus] = useState(null); // State variable to track submission status
