@@ -9,9 +9,6 @@ import CheckComplaints from './pages/Inquiry/checkComplaints';
 import AllForms from './Components/SupplierManagement/ViewSuppliers';
 
 
-
-import Medicine from './pages/Product/Medicine';
-
 import Attendance from './pages/SalaryManagement/Attendance';
 
 import Leave from './pages/SalaryManagement/Leave';
@@ -44,7 +41,7 @@ import CheckoutPage from "./pages/Product/CheckoutPage";
 import Navbar from './Components/Product/Navbar';
 import Navbar2 from './Components/Inquiry/Navbar';
 import DeliveryPage from './pages/Product/DeliveryPage';
-import UploadItems from './pages/Product/UploadItem';
+// import UploadItems from './pages/Product/UploadItem';
 
 import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

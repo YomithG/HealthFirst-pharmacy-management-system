@@ -102,11 +102,6 @@ const Medicine = () => {
             alt="weight loss & fitness" className="imgcs"/>
             <h4>Weight-loss<br/>& Fitness</h4>
           </Col>
-          <Col className="pc-1">
-            <img src="https://th.bing.com/th/id/OIP.CyxXA79QfOn2hBRZM_eVTQHaFS?w=252&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-            alt="vitamins & suppliments" className="imgcs"/>
-            <h4>Vitamins &<br/>Suppliments</h4>
-          </Col>
         </Row ><br/>
           <h3 style={{ padding: '0px 5px',textAlign:'center' }}>Shop Medicines by Categories</h3>
           {categories.map((category) => (

@@ -21,6 +21,7 @@ const ItemDetails = ({ item }) => {
     addToCart(itemToAdd);
     Toast({ type: "success", message: "Added to cart" });
   };
+  
   return (
     <div className="item-details">
       <div
@@ -31,7 +32,7 @@ const ItemDetails = ({ item }) => {
         <div className="out-of-stock-label">Out of Stock </div>
       )}
       <h4>{item.title}</h4>
-      <img src={item.image} alt={item.title} className="itemImg"/>
+      <img src={item.image} alt={item.title} className="itemImg" />
       <p className="p123"><h6>
         <strong>Rs. </strong>
         {item.price}</h6>

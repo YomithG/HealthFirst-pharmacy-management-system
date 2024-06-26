@@ -46,7 +46,11 @@
   width: 150px; /* Adjust image width as needed */
   margin-bottom: 15px;
 }
-
+.item-details img:hover {
+  height: 200px;
+  width: 250px;
+  object-fit: cover;
+}
 .item-details p {
   margin-bottom: 5px;
   font-size: 16px;
@@ -59,7 +63,7 @@
 }
 
 .item-details button {
-  background-color: #ffc107; /* Gold color */
+  background-color: #e4b529; /* Gold color */
   color: #fff;
   border: none;
   border-radius: 5px;
