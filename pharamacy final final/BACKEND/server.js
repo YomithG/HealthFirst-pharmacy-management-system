@@ -62,9 +62,9 @@ app.use('/api/feedbacks', feedbackRoutes)
 app.use('/api/complaints', complaintRoutes);
 app.use("/form", formRouter);
 
-app.use('/api/salary', salaryRoutes)
-app.use('/api/attendance', attdRoutes)
-app.use('/api/leave', leaveRoutes)
+//app.use('/api/salary', salaryRoutes)
+//app.use('/api/attendance', attdRoutes)
+//app.use('/api/leave', leaveRoutes)
 
 app.use("/delivery", deliveryRouter);
 
