@@ -1,3 +1,8 @@
+body{
+  margin: 0;
+  overflow-x: hidden;
+}
+
 .item-details {
   position: relative;
   display: flex;
@@ -6,19 +11,16 @@
   justify-content: center;
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 20px 0px;
-  margin-bottom: 20px;
+  padding: 40px 0%;
+  margin-bottom: 80px;
   background-color: #f9f9f9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   color: #333;
   width: calc(100% - 5px);
-  width: 100%; /* Ensure the width is responsive */
   max-width: 100%;
 }
-.itemImg{
-  height: 150px;
-  width: 200px;
-  object-fit: cover;
+.item-details:hover{
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.703);
 }
 .out-of-stock{
   position: relative;
@@ -40,11 +42,14 @@
   margin-bottom: 10px;
   font-size: 20px;
   font-weight: bold;
+  text-align: center;
 }
 
 .item-details img {
-  width: 150px; /* Adjust image width as needed */
+  width: 150px; 
   margin-bottom: 15px;
+  height: 200px;
+  align-self:center;
 }
 .item-details img:hover {
   height: 200px;
@@ -62,21 +67,20 @@
   font-weight: bold;
 }
 
-.item-details button {
-  background-color: #e4b529; /* Gold color */
+.item-details button:hover { 
+  color: #000;
+  border: 1px solid #394b3b;
+  background-color: whitesmoke;
+}
+
+.item-details button{
+  background-color: #5a7b5e; 
   color: #fff;
-  border: none;
-  border-radius: 5px;
+  border-radius: 60px;
   padding: 8px 16px;
   cursor: pointer;
 }
 
-.item-details button:hover {
-  background-color: #ebb102; /* Lighter shade of gold on hover */
-  font-weight: 600;
-}
-
-/* Styling for input */
 .item-details input[type="number"] {
   width: 50px;
   margin-right: 10px;
@@ -85,8 +89,6 @@
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
-/* Disabled button style */
 .item-details button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
@@ -98,9 +100,9 @@
 }
 .item-details h4 {
   margin-bottom: 10px;
-  font-size: 24px; /* Increased font size */
+  font-size: 24px; 
   font-weight: bold;
-  color: #28a745; /* Green color */
+  color: #5a7b5e; 
 }
 .pc123{
   font-style: italic;
@@ -108,5 +110,6 @@
 }
 .btnAdd{
   font-weight: normal;
+  border: #394b3b;
 }
 

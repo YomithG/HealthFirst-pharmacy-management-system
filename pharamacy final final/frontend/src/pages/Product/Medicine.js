@@ -5,6 +5,12 @@ import Navbar from "../../Components/Product/Navbar";
 import "./Medicine.css"
 import { useNavigate } from "react-router-dom";
 
+
+import Box from '@mui/material/Box';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+
 const Medicine = () => {
   const [items, setItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -41,7 +47,7 @@ const Medicine = () => {
   };
 
   return (
-    <><br/><br/>
+    <>
     {/* search field */}
     <div className="navbar navbar-expand-lg navbar-light bg-light nav11"> 
     <Row className="justify-content-center align-items-start">
@@ -61,7 +67,7 @@ const Medicine = () => {
               </Form>
             </Col>
           </Row></div><br/><br/>
-      <div>
+      <div className="body1">
         <div className="bannerbc1">
           <img
             src={require('../Product/Images/pexels-alex-green-5692697.jpg')}
@@ -78,32 +84,54 @@ const Medicine = () => {
           </div>
         </div>
         <div className="categoriesC1"><br/>
-        <h3 style={{ padding: '0px 5px', textAlign:'center' }}>Popular Categories</h3><br/>
-        <Row xs={1} md={5} className="g-4"style={{ maxWidth: '2000px', margin: '0 auto' }}>
+        <h3 style={{ padding: '0px 5px',textAlign:'center' }}>Shop Our Top Categories</h3><br/>
+        <div style={{padding:'0px 160px', alignItems:'center'}}>
+        <Box sx={{ width: 1500, height: 400,  }}>
+      <ImageList variant="masonry" cols={5} gap={20}>
+        
+        <ImageListItem >
+          <div style={{fontWeight:'bold'}}>
+            <img  className="imgcc1" style={{height:'300px', width:'200px'}} 
+              src= {require('../Product/Images/Vitamins-Feature.jpg')}
+              loading="lazy" onClick={() => handleCategoryClick('/vitamins')}
+            />
+            <ImageListItemBar position="below" title="Vitamins & Suppliments"/>
+          </div>
+        </ImageListItem>
+        <ImageListItem >
+          <div style={{fontWeight:'bold'}}>
+            <img  className="imgcc1" style={{height:'300px', width:'200px'}} 
+              src= {require('../Product/Images/baby.jpeg')}
+              loading="lazy" onClick={() => handleCategoryClick('/babycare')}
+            />
+            <ImageListItemBar position="below" title="Mom & BabyCare"/>
+          </div>
+        </ImageListItem>
+        <ImageListItem >
+          <div style={{fontWeight:'bold'}}>
+            <img  className="imgcc1" style={{height:'300px', width:'200px'}} 
+              src= {require('../Product/Images/beauty.jpeg')}
+              loading="lazy"
+            />
+            <ImageListItemBar position="below" title="Personal care & Beauty"/>
+          </div>
+        </ImageListItem>
+        <ImageListItem >
+          <div style={{fontWeight:'bold'}}>
+            <img  className="imgcc1" style={{height:'300px', width:'200px'}} 
+              src= {require( '../Product/Images/weight.jpg')}
+              loading="lazy"
+            />
+            <ImageListItemBar position="below" title="Weight-loss & fitness"/>
+          </div>
+        </ImageListItem>
+      
+      </ImageList>
+    </Box>
+    </div>
         <br/>
-
-          <Col className="pc-1" onClick={() => handleCategoryClick('/vitamins')}>
-            <img src="https://th.bing.com/th/id/OIP.CyxXA79QfOn2hBRZM_eVTQHaFS?w=252&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-            alt="vitamins & suppliments" className="imgcs"/>
-            <h4>Vitamins &<br/>Suppliments</h4>
-          </Col>
-          <Col className="pc-1" onClick={() => handleCategoryClick('/babycare')}>
-            <img src="https://th.bing.com/th/id/OIP.fH6SUvEbko1IhxXz6ns5ewHaHa?w=199&h=199&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-            alt="Mom & Baby care" className="imgcs"/>
-            <h4>Mom &<br/>Baby care</h4>
-          </Col>
-          <Col className="pc-1">
-            <img src="https://th.bing.com/th/id/OIP.ywx-BDJTwqcEW96rveG7hwHaE7?w=224&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-            alt="personal care & beauty" className="imgcs"/>
-            <h4>Personal care<br/>& Beauty</h4>
-          </Col>
-          <Col className="pc-1">
-            <img src="https://th.bing.com/th/id/OIP.HgsnNqWVU6UcMh5WY6p5ogHaHa?w=150&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
-            alt="weight loss & fitness" className="imgcs"/>
-            <h4>Weight-loss<br/>& Fitness</h4>
-          </Col>
-        </Row ><br/>
-          <h3 style={{ padding: '0px 5px',textAlign:'center' }}>Shop Medicines by Categories</h3>
+        <div className="categoriesM" style={{padding:'0px 30px'}}>
+          <h3 style={{ padding: '0px 5px',textAlign:'center' }}>Choose Medicines by Categories</h3><br/>
           {categories.map((category) => (
             <button className="btnc m-2 categorybtn1"
               key={category}
@@ -118,7 +146,6 @@ const Medicine = () => {
             className="btnc m-2 allCategorybtn"
             onClick={() => setSelectedCategory("")}
             variant={selectedCategory === "" ? "primary" : "outline-primary"}
-            
           >
             All Categories
           </Button>
@@ -126,18 +153,18 @@ const Medicine = () => {
         <br />
         {/* Display selected category */}
         <h2 className="headerProducts1">
-          {selectedCategory === "" ? "More to Explore" : selectedCategory}
+          {selectedCategory === "" ? "More to Explore..." : selectedCategory}
         </h2>
         {/* view product details */}
 
-        <Row xs={1} md={4} className="g-4" style={{ maxWidth: '2000px', margin: '0 auto' }}>
+        <Row xs={2} md={4} className="g-4" style={{ maxWidth: '2000px', margin: '0 auto' }}>
           {filteredItems.map((item) => (
             <Col key={item._id}>
               <ItemDetails item={item} />
             </Col>
           ))}
         </Row>
-        
+        </div>
       </div>
       <footer style={{ 
         backgroundColor: '#333', 

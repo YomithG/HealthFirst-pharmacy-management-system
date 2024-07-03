@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Toast from "../../utils/Toast";
+import { warningMessage1 } from "../../utils/Alert";
 
 const AdminPanelEdit = () => {
   const [items, setItems] = useState([]);
@@ -67,9 +68,12 @@ const AdminPanelEdit = () => {
   //confirm deleting
   const confirmDeleteItem = (itemId) => {
     setDeleteItemId(itemId);
-    if (window.confirm("Are you sure you want to delete this item?")) {
-      deleteItem(itemId);
-    }
+    warningMessage1(
+      "Are you sure ?", "Once confirmed the selected item will no longer be available!",
+      () => {
+        deleteItem(itemId);
+      }
+    )
   };
   //delete details
   const deleteItem = async (itemId) => {
@@ -121,7 +125,8 @@ const AdminPanelEdit = () => {
                   </>
                 ) : (
                   <>
-                    <Button variant="info" onClick={() => editItem(item._id)} style={{padding:'7px 20px'}}><h6>Edit</h6></Button>{' '}
+                    <Button variant="info" onClick={() => editItem(item._id)} 
+                      style={{padding:'5px 20px', backgroundColor:'#5a7b5e'}}><h6>Edit</h6></Button>{' '}
                     <Button variant="danger" onClick={() => confirmDeleteItem(item._id)} style={{padding:'7px 20px'}}><h6>Delete</h6></Button>
                   </>
                 )}

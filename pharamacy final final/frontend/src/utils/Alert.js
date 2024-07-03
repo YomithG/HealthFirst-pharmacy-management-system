@@ -93,3 +93,50 @@ export function warningMessage(title, message) {
     padding: "1rem",
   });
 }
+
+/**
+ * @param {string} title
+ * @param {string} message
+ * @param {function} confirmCallback
+ * @returns {void}
+ * @example
+ * warningMessage("Warning", "Are you sure?", () => {
+ *  console.log("Confirmed");
+ * });
+ **/
+export function warningMessage1(title, message, confirmCallback) {
+  Swal.fire({
+    title: `<span class="text-md font-semibold">${title}</span>`,
+    html: `<span class="text-md font-semibold">${message}</span>`,
+    showCancelButton: true,
+    confirmButtonText: "Yes, remove it!",
+    cancelButtonText: "Cancel",
+    customClass: {
+      title: "text-md",
+    },
+    padding: "1rem",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      confirmCallback();
+    }
+  });
+}
+
+export function warningMessage2(title, message, confirmCallback) {
+  Swal.fire({
+    title: `<span class="text-md font-semibold">${title}</span>`,
+    html: `<span class="text-md font-semibold">${message}</span>`,
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Yes, remove it!",
+    cancelButtonText: "Cancel",
+    customClass: {
+      title: "text-md",
+    },
+    padding: "1rem",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      confirmCallback();
+    }
+  });
+}

@@ -1,28 +1,36 @@
 import React from "react";
 import { useShoppingCartStore } from "./ShoppingCart";
 import Toast from "../../utils/Toast";
+import {warningMessage1, warningMessage2} from "../../utils/Alert"
 
 const ShoppingCart = () => {
   const { cartItems, removeFromCart, updateItemQuantity, resetCart } =
     useShoppingCartStore();
 
   const handleQuantityChange = (itemId, quantity) => {
-    // if quantity is less than 1, set it to 1
+  //if quantity is less than 1, set it to 1
     quantity = Math.max(1, quantity);
     updateItemQuantity(itemId, quantity);
   };
   //remove from cart
   const handleRemoveFromCart = (itemId) => {
-    if (window.confirm('Are you sure you want to remove this item from your cart?')) {
-      removeFromCart(itemId);
+    warningMessage1(
+      "Are you sure ?", "Once confirmed the selected item will no longer be available in your cart!",
+      () => {
+        removeFromCart(itemId);
       Toast({ type: "success", message: "Item removed from cart" });
-    }
+      }
+    )
   };
   //reset the cart
   const handleResetCart = () => {
-    if (window.confirm('Are you sure you want to reset your cart?')) {
-      resetCart();
-    }
+    warningMessage2(
+      "Are you sure ?", "Once confirmed all items in the cart will be removed!",
+      () => {
+        resetCart();
+        Toast({ type: "success", message: "Cart is resetted" });
+      }
+    )
   };
 
   return (
