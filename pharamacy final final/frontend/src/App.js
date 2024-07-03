@@ -115,7 +115,8 @@ function App() {
            <Route path="/add-complaint" element={<HomeComplaints />} /> 
            <Route path="/home" element={<Home />} /> 
 
-
+          {/* Salary details */}
+          <Route path="/salary-dashboard" element={<Dashboard />} />
 
           </Routes>
         </div>
