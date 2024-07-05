@@ -35,6 +35,8 @@ import DelievryDetailsForm from "./Components/Product/oDetails";
 import Medicine from './pages/Product/Medicine';
 import Babycare from './pages/Product/Categories/Babycare';
 import Vitamins from './pages/Product/Categories/Vitamins';
+import Beauty from './pages/Product/Categories/Beauty';
+import Fitness from './pages/Product/Categories/Fitness';
 
 import Cart from "./pages/Product/Cart";
 import CheckoutPage from "./pages/Product/CheckoutPage";
@@ -76,6 +78,8 @@ function App() {
             <Route path="/medicine" element={<Medicine />} />
             <Route path='/babycare' element={<Babycare />} />
             <Route path='/vitamins' element={<Vitamins />} />
+            <Route path='/beauty' element={<Beauty />} />
+            <Route path='/fitness' element={<Fitness />} />
             <Route path="/admin" element={<Admin />} />
 
             <Route path="/cart" element={<Cart />} />

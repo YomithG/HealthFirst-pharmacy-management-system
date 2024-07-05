@@ -111,7 +111,7 @@ const Medicine = () => {
           <div style={{fontWeight:'bold'}}>
             <img  className="imgcc1" style={{height:'300px', width:'200px'}} 
               src= {require('../Product/Images/beauty.jpeg')}
-              loading="lazy"
+              loading="lazy" onClick={() => handleCategoryClick('/beauty')}
             />
             <ImageListItemBar position="below" title="Personal care & Beauty"/>
           </div>
@@ -120,7 +120,7 @@ const Medicine = () => {
           <div style={{fontWeight:'bold'}}>
             <img  className="imgcc1" style={{height:'300px', width:'200px'}} 
               src= {require( '../Product/Images/weight.jpg')}
-              loading="lazy"
+              loading="lazy"  onClick={() => handleCategoryClick('/fitness')}
             />
             <ImageListItemBar position="below" title="Weight-loss & fitness"/>
           </div>

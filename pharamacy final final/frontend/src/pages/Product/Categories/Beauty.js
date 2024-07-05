@@ -1,11 +1,11 @@
 import React from 'react';
-import Img2 from '../Images/v&s2.jpg'
+import Img3 from '../Images/b1.jpg'
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import ItemDetails from '../../../Components/Product/ProductDetails';
 import "../Medicine.css"
 
-const Vitamins = ()=> {
+const Beauty = ()=> {
     const [items, setItems] = useState([]);
     useEffect(() => {
         const fetchItems = async () => {
@@ -24,22 +24,22 @@ const Vitamins = ()=> {
       }, []);
 
       const filteredItems = items.filter(item => 
-        (item.category === "Vitamins")
+        (item.category === "Beauty Care")
     );
     
 
     return(
         <div style={{padding : '0px 30px ',}}>
             <br/> <br/> <br/><br/>
-            <h1 style={{fontSize:'50px', textAlign:'center',}}>Vitamins & Suppliments</h1>
-            <img src= {require= (Img2)} 
+            <h1 style={{fontSize:'50px', textAlign:'center',}}>Beauty Care</h1>
+            <img src= {require= (Img3)} 
             style={{width:'100%', height:'400px', objectFit:'cover'}}/>
             <br/><br/><br/>
             <p className='babypara' style={{ color: 'black', fontSize: '25px', textAlign: 'center', fontFamily: 'Ubuntu' }}>
 
-            "Welcome to the Vitamins & Supplements section of Central Pharmacy! <br/> 
-            Here, you'll find a wide range of products designed to support your health and well-being. 
-            Explore our selection to find the perfect supplements to meet your needs and help you live your best life."
+            "Welcome to our Beauty Care section! <br/>
+            Discover a variety of products designed to enhance your natural beauty and keep your skin, hair, and nails looking their best. 
+            Explore our selection and find the perfect beauty solutions to fit your routine."
             </p>
             <br/><br/>
             <h3 style={{textAlign:'center', }}>Explore items...</h3><br/>
@@ -54,4 +54,4 @@ const Vitamins = ()=> {
         </div>
     )
 }
-export default Vitamins;
+export default Beauty;
