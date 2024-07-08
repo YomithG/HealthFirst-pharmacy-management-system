@@ -59,6 +59,7 @@ const Header = () => {
               <Link to="/cart">
                 <div className="cartContainer">
                   <div className="cartContent">
+                    
                     <img
                       src="https://www.freeiconspng.com/uploads/cart-icon-14.png"
                       alt=""
