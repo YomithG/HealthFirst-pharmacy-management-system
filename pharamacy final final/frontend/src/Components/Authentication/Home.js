@@ -33,15 +33,15 @@ const Home = () => {
         <div className='text' 
           style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'black', zIndex: 1,fontFamily:'sans-serif'}}
         >
-          <img src= {logo} style={{height: '200px', width: '180px', }}/>
-          <h1 style={{color:'rgb(64, 50, 17)', fontWeight:'bold'}} >MEET YOUR ONLINE PHARMACY <span style={{color:'black', fontSize:'50PX', fontWeight:'bolder'}}>HealthFirst</span></h1>
-          <p style={{color:'black'}}>Medicine at your Door</p>
-          </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={explore} 
-            alt="" 
-            style={{height: '600px', width: '100%', objectFit: 'fill', backgroundColor: '#f0f0f0'}}/>
+        <img src= {logo} style={{height: '200px', width: '180px', }}/>
+        <h1 style={{color:'rgb(64, 50, 17)', fontWeight:'bold'}} >MEET YOUR ONLINE PHARMACY <span style={{color:'black', fontSize:'60PX', fontWeight:'bolder'}}>HealthFirst</span></h1>
+        <p style={{color:'black'}}>Medicine at your Door</p>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <img src={explore} 
+          alt="" 
+          style={{height: '600px', width: '100%', objectFit: 'fill', backgroundColor: '#f0f0f0'}}/>
           </SwiperSlide>
         </Swiper>
 
