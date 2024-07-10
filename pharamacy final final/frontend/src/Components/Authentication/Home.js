@@ -1,34 +1,47 @@
 import React from 'react';
 import heroImage from './heroImage.jpg';
+import heroImage2 from './heroImage2.jpg';
 import explore from './explore.png';
-
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css'; // Import Swiper styles
+import 'swiper/css/navigation'; // Import specific Swiper styles
+import 'swiper/css/pagination'; // Import specific Swiper styles
+import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 
 const Home = () => {
   return (
     <div>
-      {/* Hero section with image */}
-      <section 
-      style={{ 
-        height: '800px', 
-        background: `url(${heroImage}) no-repeat center center`, // Set background image
-        backgroundSize: 'cover', // Ensure the image covers the entire section
-        backgroundColor: '#f0f0f0', 
-        textAlign: 'center', 
-        paddingTop: '200px', 
-        color: 'white' // Set text color to white
-      
-      }}
-    >
-      <h1>Welcome to HealthFirst</h1>
-      <p>Find all your medication needs in one place</p>
-    </section>
-
-
- <section style={{ height: '800px', backgroundColor: '#ffe9e1', textAlign: 'center', paddingTop: '0px' }}>
-  <img src={explore} alt="Explore Image" style={{ width: '100%' }} />
-</section>
-
+      <br/><br/>
+      <Swiper
+        cssMode={true}
+        navigation={true}
+        loop={true}
+        pagination={{ clickable: true }}
+        mousewheel={true}
+        keyboard={true}
+        rewind={true}
+        modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+        className="mySwiper mt-12"
+      >
+      <SwiperSlide>
+        <img
+          src={heroImage2}
+          style={{height: '600px', width: '100%', objectFit: 'cover', backgroundColor: '#f0f0f0', opacity: '0.6'}}
+          alt="Hero Image"
+        />
+        <div className='text' 
+          style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'black', zIndex: 1,}}
+        >
+          <h1>Welcome to HealthFirst</h1>
+          <p style={{color:'black'}}>Find all your medication needs in one place</p>
+          </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={explore} 
+            alt="" 
+            style={{height: '600px', width: '100%', objectFit: 'fill', backgroundColor: '#f0f0f0'}}/>
+          </SwiperSlide>
+        </Swiper>
 
       {/* About Us section */}
       <section style={{ height: '500px', backgroundColor: '#ffe9e1', textAlign: 'center', paddingTop: '100px' }}>
@@ -45,11 +58,12 @@ const Home = () => {
       </section>
 
       {/* Footer section */}
-      <footer style={{ 
-        backgroundColor: '#333', 
-        color: '#fff', 
-        textAlign: 'center', 
-        padding: '50px 0' }}>
+      <footer style={{
+        backgroundColor: '#333',
+        color: '#fff',
+        textAlign: 'center',
+        padding: '50px 0'
+      }}>
         <div>
           <h2>Our Pharmacy</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -72,4 +86,3 @@ const Home = () => {
 }
 
 export default Home;
-
