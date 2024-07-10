@@ -2,6 +2,7 @@ import React from 'react';
 import heroImage from './heroImage.jpg';
 import heroImage2 from './heroImage2.jpg';
 import explore from './explore.png';
+import logo from './logo1.jpeg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css'; // Import Swiper styles
 import 'swiper/css/navigation'; // Import specific Swiper styles
@@ -30,10 +31,11 @@ const Home = () => {
           alt="Hero Image"
         />
         <div className='text' 
-          style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'black', zIndex: 1,}}
+          style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'black', zIndex: 1,fontFamily:'sans-serif'}}
         >
-          <h1>Welcome to HealthFirst</h1>
-          <p style={{color:'black'}}>Find all your medication needs in one place</p>
+          <img src= {logo} style={{height: '200px', width: '180px', }}/>
+          <h1 style={{color:'rgb(64, 50, 17)', fontWeight:'bold'}} >MEET YOUR ONLINE PHARMACY <span style={{color:'black', fontSize:'50PX', fontWeight:'bolder'}}>HealthFirst</span></h1>
+          <p style={{color:'black'}}>Medicine at your Door</p>
           </div>
           </SwiperSlide>
           <SwiperSlide>
