@@ -10,6 +10,7 @@
   --text: #FFFFFF;
   --error: rgb(179, 21, 21);
   --warning: rgb(221, 167, 167);
+  --other: rgb(73, 180, 127)
 }
 
 /* Body and general styling */
@@ -17,7 +18,7 @@ body {
   background: var(--text);
   color: var(--primary);
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins";
 }
 
 .container {
