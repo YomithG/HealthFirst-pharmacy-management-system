@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { UseFeedbackContext } from '../../hooks/UseFeedbacksContext';
+import '../../pages/Feedback/HomeFeedback.css'
 
 const FeedbackForm = () => {
   const { dispatch } = UseFeedbackContext();
@@ -44,15 +45,21 @@ const FeedbackForm = () => {
 
   return (
     <form className="create1" onSubmit={handleSubmit}>
-      <h2>Add your feedback</h2>
+      <h2 style={{ color:'#164A41'
+            
+          }} ><b>Add your feedback</b></h2>
 
-      <label ><small>Name:</small></label>
+      <label style={{ color:'#164A41'
+            
+          }} >Name:</label>
       <input type="text" onChange={(e) => setUsername(e.target.value)} value={username} />
 
-      <label>Feedback:</label>
+      <label style={{ color:'#164A41'
+            
+          }}>Feedback:</label>
       <input type="text" onChange={(e) => setContent(e.target.value)} value={content} />
 
-      <label>Rate Us:</label>
+      <label >Rate Us:</label>
       <div className="rating-buttons">
         {[1, 2, 3, 4, 5].map((value) => (
           <button
