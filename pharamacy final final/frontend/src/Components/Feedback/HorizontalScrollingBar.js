@@ -41,7 +41,7 @@ const HorizontalScrollingBar = () => {
 
   return (
     <div className="horizontal-scrolling-bar">
-      <h1>What are people saying?</h1>
+      <h1><b>What are people saying?</b></h1>
       <br></br>
       <div className="scroll-wrapper">
         <button className="scroll-button" onClick={prevSlide}>&#9664;</button>

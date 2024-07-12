@@ -111,7 +111,7 @@ const FeedbackDetails = ({ feedback, onUpdateFeedback }) => {
                     <p style={{ fontSize: '0.75rem' }}>
                     {formatDistanceToNow(new Date(feedback.createdAt), { addSuffix: true })}
                 </p>
-     <br></br>
+     
                     <div className="action-buttons">
                      
                                {/*  <button onClick={handleClick}>delete</button>
@@ -121,7 +121,7 @@ const FeedbackDetails = ({ feedback, onUpdateFeedback }) => {
                    
                        
                     </div>
-                    <br />
+                   
                 </div>
             )}
         </div>

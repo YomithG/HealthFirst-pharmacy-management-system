@@ -56,7 +56,7 @@ const HomeFeedback = () => {
 
         <div className="feedbacks">
           <div className="average-rating">
-            <h2 style={{ textAlign:'left', color:'#164A41' }}>Average Rating</h2>
+            <h2 style={{ textAlign:'left', color:'#164A41',fontSize:'25px' }}><b>Average Rating</b></h2>
             <StarRating rating={averageRating} />
             <p style={{ textAlign:'left', color:'#4D774E' }}>{averageRating.toFixed(2)} / 5</p>
           </div>

@@ -18,7 +18,7 @@ body {
   background: var(--text);
   color: var(--primary);
   margin: 0;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
 }
 
 .container {

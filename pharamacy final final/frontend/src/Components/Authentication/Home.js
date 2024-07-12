@@ -24,6 +24,7 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 
+
 const Home = () => {
   const navigate = useNavigate();
 
@@ -55,7 +56,8 @@ const Home = () => {
             style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'black', zIndex: 1, fontFamily: 'sans-serif' }}
           >
             <img src={logo} style={{ height: '200px', width: '180px' }} />
-            <h1 style={{ color: 'rgb(64, 50, 17)', fontWeight: 'bold' }}>MEET YOUR ONLINE PHARMACY <span style={{ color: 'black', fontSize: '60px', fontWeight: 'bolder' }}>HealthFirst</span></h1>
+            <br></br><br></br>
+            <h1 style={{ color: '#164A41', fontWeight: 'bold' }}>MEET YOUR ONLINE PHARMACY <span style={{ color: 'black', fontSize: '60px', fontWeight: 'bolder' }}>HealthFirst</span></h1>
             <p style={{ color: 'black' }}>Medicine at your Door</p>
           </div>
         </SwiperSlide>
@@ -66,10 +68,10 @@ const Home = () => {
             alt="Hero Image"
           />
           <div className='text'
-            style={{ position: 'absolute', top: '50%', left: '77.5%', transform: 'translate(-50%, -50%)', textAlign: 'LEFT', color: 'black', zIndex: 1, fontFamily: 'sans-serif' }}
+            style={{ position: 'absolute', top: '50%', left: '80%', transform: 'translate(-50%, -50%)', textAlign: 'LEFT', color: 'black', zIndex: 1, fontFamily: 'Poppins,sans-serif' }}
           >
-            <h1 style={{ color: 'rgb(64, 50, 17)', fontWeight: 'bold',fontSize:'50PX'}}>DISCOVER YOUR ALL MEDICINE NEEDS IN ONE PLACE</h1><br/>
-            <p style={{ color: 'rgb(64, 50, 17)', fontWeight: 'bold',fontSize:'25PX' }}>EFFORTLESSLY ACCESS AND MANAGE YOUR MEDICATIONS WITH OUR COMPREHENSIVE SYSTEM</p>
+            <h1 style={{ color: '#164A41', fontWeight: 'bold',fontSize:'40PX'}}>DISCOVER YOUR ALL MEDICINE NEEDS IN ONE PLACE</h1><br/>
+            <p style={{ color: '#164A41', fontWeight: 'bolder',fontSize:'25PX' }}>EFFORTLESSLY ACCESS AND MANAGE YOUR MEDICATIONS WITH OUR COMPREHENSIVE SYSTEM</p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -79,9 +81,9 @@ const Home = () => {
             alt="Hero Image"
           />
           <div className='text'
-            style={{ padding: '10%', backgroundColor: 'rgba(0, 0, 0, 0.5)', position: 'absolute', top: '50%', left: '25%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'black', zIndex: 1, fontFamily: 'sans-serif' }}
+            style={{ padding: '10%', backgroundColor: 'rgba(0, 0, 0, 0.5)', position: 'absolute', top: '50%', left: '25%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'black', zIndex: 1, fontFamily: 'Poppins,sans-serif' }}
           >
-            <h1 style={{ color: 'rgb(204, 184, 142)', fontSize: '55px', fontWeight: 'bold' }}>RELIABLE ON TIME <br />HOME DELIVERY </h1><br />
+            <h1 style={{ color: '#9DC88D', fontSize: '55px', fontWeight: 'bold' }}>RELIABLE ON TIME <br />HOME DELIVERY </h1><br />
             <p style={{ color: 'white', fontSize: '25px', fontWeight: 'bolder' }}>OUR IN-HOUSE PHARMACIST ENSURE<br /> YOUR MEDICINE REACH
               YOU<br /> WHEN YOU NEED THEM.
             </p><br />
@@ -132,9 +134,9 @@ const Home = () => {
             src={oShop}
             style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
           />
-          <div style={{ position: 'absolute', top: '30%', left: '30%', textAlign: 'center' }}>
-            <h1>Why Hesitate?</h1> <br />
-            <button className='searchbtn1' style={{ borderRadius: '20px', fontSize: '25px', padding: '0px 30px', height: '50px' }}
+          <div style={{ position: 'absolute', top: '30%', left: '30%', textAlign: 'center',fontFamily: 'sans-serif' }}>
+            <h1><b>Why Hesitate?</b></h1> <br />
+            <button className='searchbtn1' style={{ borderRadius: '20px', fontSize: '25px', padding: '0px 30px', height: '50px',fontFamily: 'sans-serif' }}
               onClick={() => handleCategoryClick('/medicine')}>
               Shop now
             </button>
@@ -155,9 +157,11 @@ const Home = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            textAlign: 'center'
+            textAlign: 'center',
+            fontFamily: 'sans-serif'
+
           }}>
-            <h1>Your ideas matter<br /></h1>
+            <h1><b>Your ideas matter</b><br /></h1>
             <h3>Help us to improve our services by simply<br /> giving a feedback</h3>
             <img
               src={arrow}
@@ -180,21 +184,21 @@ const Home = () => {
   flexWrap: 'wrap'
 }}>
   <div style={{ flex: '1 1 300px', margin: '20px' }}>
-    <h2 style={{
+    <h3 style={{
       borderBottom: '2px solid #ecf0f1',
       display: 'inline-block',
       paddingBottom: '10px',
       color: '#8FCB81' // Brighter green for the headings
-    }}>Our Pharmacy</h2>
-    <p>Central Pharmacy is committed to providing high-quality healthcare solutions. Trusted by the community since 2001.</p>
+    }}><b>Our Pharmacy</b></h3>
+    <p><small>Central Pharmacy is committed to providing high-quality healthcare solutions. Trusted by the community since 2001.</small></p>
   </div>
   <div style={{ flex: '1 1 300px', margin: '20px' }}>
-    <h2 style={{
+    <h3 style={{
       borderBottom: '2px solid #ecf0f1',
       display: 'inline-block',
       paddingBottom: '10px',
       color: '#8FCB81' // Brighter green for the headings
-    }}>Follow Us</h2>
+    }}><b>Follow Us</b></h3>
     <div>
       <a href="#facebook" style={{
         color: '#ecf0f1',
@@ -202,33 +206,33 @@ const Home = () => {
         textDecoration: 'none',
         transition: 'color 0.3s'
       }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} // Brighter green on hover
-        onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>Facebook</a>
+        onMouseOut={(e) => e.target.style.color = '#ecf0f1'}><small>Facebook</small></a>
       <a href="#twitter" style={{
         color: '#ecf0f1',
         margin: '0 10px',
         textDecoration: 'none',
         transition: 'color 0.3s'
       }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} // Brighter green on hover
-        onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>Twitter</a>
+        onMouseOut={(e) => e.target.style.color = '#ecf0f1'}><small>Twitter</small></a>
       <a href="#instagram" style={{
         color: '#ecf0f1',
         margin: '0 10px',
         textDecoration: 'none',
         transition: 'color 0.3s'
       }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} // Brighter green on hover
-        onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>Instagram</a>
+        onMouseOut={(e) => e.target.style.color = '#ecf0f1'}><small>Instagram</small></a>
     </div>
   </div>
   <div style={{ flex: '1 1 300px', margin: '20px' }}>
-    <h2 style={{
+    <h3 style={{
       borderBottom: '2px solid #ecf0f1',
       display: 'inline-block',
       paddingBottom: '10px',
       color: '#8FCB81' // Brighter green for the headings
-    }}>Contact Us</h2>
-    <p>Email: <a href="mailto:info@centralpharmacy.lk" style={{ color: '#ecf0f1', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>info@centralpharmacy.lk</a></p>
-    <p>Phone: <a href="tel:+94123456789" style={{ color: '#ecf0f1', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>+94 123 456 789</a></p>
-    <p>Address: 123 Main Street, Pokunuwita, Sri Lanka</p>
+    }}><b>Contact Us</b></h3>
+    <p><small>Email: <a href="mailto:info@centralpharmacy.lk" style={{ color: '#ecf0f1', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>info@centralpharmacy.lk</a></small></p>
+    <p><small>Phone: <a href="tel:+94123456789" style={{ color: '#ecf0f1', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>+94 123 456 789</a></small></p>
+    <p><small>Address: 123 Main Street, Pokunuwita, Sri Lanka</small></p>
   </div>
 </footer>
 
