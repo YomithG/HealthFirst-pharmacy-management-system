@@ -1,7 +1,7 @@
 import React from 'react';
 import heroImage from './heroImage.jpg';
 import heroImage2 from './heroImage2.jpg';
-import explore from './explore.png';
+import explore from './explore1.png';
 import logo from './logo1.jpeg';
 import delivery from './delivery.jpg';
 import aicon from './aicon.png';
@@ -60,9 +60,17 @@ const Home = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={explore}
-            alt=""
-            style={{ height: '600px', width: '100%', objectFit: 'fill', backgroundColor: '#f0f0f0' }} />
+        <img
+            src={explore}
+            style={{ height: '600px', width: '100%', objectFit: 'cover', backgroundColor: '#f0f0f0', opacity: '0.6' }}
+            alt="Hero Image"
+          />
+          <div className='text'
+            style={{ position: 'absolute', top: '50%', left: '77.5%', transform: 'translate(-50%, -50%)', textAlign: 'LEFT', color: 'black', zIndex: 1, fontFamily: 'sans-serif' }}
+          >
+            <h1 style={{ color: 'rgb(64, 50, 17)', fontWeight: 'bold',fontSize:'50PX'}}>DISCOVER YOUR ALL MEDICINE NEEDS IN ONE PLACE</h1><br/>
+            <p style={{ color: 'rgb(64, 50, 17)', fontWeight: 'bold',fontSize:'25PX' }}>EFFORTLESSLY ACCESS AND MANAGE YOUR MEDICATIONS WITH OUR COMPREHENSIVE SYSTEM</p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
           <img
@@ -161,38 +169,6 @@ const Home = () => {
       </div>
 
       {/* About Us section */}
-      <section style={{ height: 'auto', position: 'relative', textAlign: 'center', margin: '20px 0' }}>
-        <img
-          src={bc112}
-          style={{ width: '100%', height: 'auto', objectFit: 'cover', opacity: '0.5' }}
-        />
-        <div style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', display: 'flex', flexDirection: 'column', fontWeight: 'bold', alignItems: 'center', justifyContent: 'center', color: 'black', padding: '50px', boxSizing: 'border-box' }}>
-          <h2>About Us</h2>
-          <hr style={{ width: '50%', margin: '20px auto', borderColor: '#000' }} />
-          <p style={{ maxWidth: '800px', margin: '0 auto', lineHeight: '1.6', fontSize: '1.1em', color: 'black', fontWeight: 'normal' }}>
-            Central Pharmacy: Your Trusted Health Partner Since 2001<br />
-            Welcome to Central Pharmacy, a cornerstone of healthcare in the heart of Pokunuwita since 2001. As a proud franchise of the Osu Sala network under the State Pharmaceuticals Corporation (SPC) of Sri Lanka, we are committed to providing our community with high-quality, affordable healthcare solutions.
-            <br /><br /><strong>Our Journey</strong><br />
-            Founded over two decades ago, Central Pharmacy has grown into a trusted name in the region, known for its dedication to customer care and pharmaceutical excellence. Our location in Pokunuwita serves as a hub where health and well-being are our top priorities.
-            <br /><br /><strong>Our Services</strong><br />
-            At Central Pharmacy, we offer a comprehensive range of services designed to meet all your health needs:
-            <br />- Prescription Medication Services: Our knowledgeable pharmacists ensure that you receive the correct medications and provide expert advice on their use.
-            <br />- Over-the-Counter Medication Services: We stock a wide variety of over-the-counter medicines and health products to address everyday health concerns.
-            <br />- Delivery Services: For your convenience, we offer prompt and reliable delivery services, bringing your medications and health products right to your doorstep.
-            <br /><br />As part of the SPC's Osu Sala network, we uphold the highest standards of quality and service, ensuring that every customer receives the best care possible.
-            <br /><br />Thank you for choosing Central Pharmacy. We are here to support your health and wellness journey every step of the way.
-          </p>
-        </div>
-      </section>
-
-      {/* Contact Us section */}
-      <section style={{ height: '500px', backgroundColor: '#f0f0f0', textAlign: 'center', paddingTop: '200px', margin: '20px 0' }}>
-        <h2>Contact Us</h2>
-        <p>Email: info@example.com</p>
-        <p>Phone: 123-456-7890</p>
-        <p>Address: 123 Main Street, City, Country</p>
-      </section>
-
       {/* Footer section */}
       <footer style={{
         backgroundColor: '#2c3e50',
