@@ -43,10 +43,10 @@ const FeedbackForm = () => {
   };
 
   return (
-    <form className="create" onSubmit={handleSubmit}>
-      <h3>Add your feedback</h3>
+    <form className="create1" onSubmit={handleSubmit}>
+      <h2>Add your feedback</h2>
 
-      <label>Name:</label>
+      <label ><small>Name:</small></label>
       <input type="text" onChange={(e) => setUsername(e.target.value)} value={username} />
 
       <label>Feedback:</label>
@@ -56,11 +56,13 @@ const FeedbackForm = () => {
       <div className="rating-buttons">
         {[1, 2, 3, 4, 5].map((value) => (
           <button
-            key={value}
-            className={value === selectedRating ? 'selected' : ''}
-            onClick={() => handleRatingChange(value)}
-            type="button"
+          key={value}
+          className={value === selectedRating ? 'selected' : ''}
+          onClick={() => handleRatingChange(value)}
+          type="button"
+          style={{ backgroundColor:'#FFFFFF'
             
+          }} 
           >
             {value}
           </button>

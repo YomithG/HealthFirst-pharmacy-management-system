@@ -6,85 +6,6 @@
     gap: 100px;
   }
   
-  .feedback-details {
-    background: var(--accent); /* Set feedback details background color */
-    border-radius: 4px;
-    margin: 20px auto;
-    padding: 20px;
-    position: relative;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
-  }
-  
-  .feedback-details p {
-    margin: 0;
-    font-size: 0.9em;
-    color: var(--primary); /* Set text color */
-  }
-  
-  .feedback-details span {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    background: var(--primary); /* Set span background color */
-    padding: 6px;
-    border-radius: 50%;
-    color: #ffffff; /* Set span text color */
-  }
-  
-  .rating-buttons {
-    display: flex;
-  }
-  
-  .rating-buttons button {
-    color: #164A41; /* Set button text color */
-    margin-right: 5px;
-    background-color: var(--accent); /* Set default button background color */
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .rating-buttons button:hover {
-    background-color: var(--hover); /* Change button background color on hover */
-  }
-  
-  .rating-buttons button.selected {
-    background-color: var(--hover); /* Set selected button background color */
-  }
-  
-  label,
-  input {
-    display: block;
-  }
-  
-  input {
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  form button {
-    background: var(--accent); /* Set button background color */
-    border: 0;
-    color: var(--primary); /* Set button text color */
-    padding: 10px;
-    font-family: "Poppins";
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  form button:hover {
-    background: var(--hover); /* Change button background color on hover */
-  }
-  
   div.error {
     padding: 10px;
     background: var(--warning); /* Set error background color */
@@ -113,53 +34,7 @@
       color: #FFFFFF; /* Change text color on hover */
     }
   }
-  /* styles.css */
-  
-  .star-rating {
-    display: inline-block;
-    font-size: 24px;
-    color: gold;
-  }
-  
-  .star {
-    cursor: pointer;
-  }
-  
-  /* Style the filled stars */
-  .filled {
-    color: gold; /* Set the color of filled stars */
-  }
-  
-  /* Style the empty stars */
-  .empty {
-    color: #ccc; /* Set the color of empty stars */
-  }
-  
-  .create {
-   height:fit-content;
-     margin: 0 auto; /* Center the form horizontally */
-    padding: 20px; /* Add padding to create space inside the box */
-    border-radius: 8px; /* Add rounded corners to the box */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a box shadow */
-    background-color: #fff; /* Set the background color of the box */
-  }
-  
-  .average-rating {
-    background-color: #f9f9f9; /* Background color */
-    border: 1px solid #ddd; /* Border */
-    padding: 20px; /* Padding */
-    border-radius: 8px; /* Border radius */
-    margin-top: 20px; /* Margin top */
-  }
-  
-  .average-rating h3 {
-    margin-top: 0; /* Remove margin top for h3 */
-  }
-  
-  .average-rating p {
-    margin-bottom: 0; /* Remove margin bottom for p */
-  }
-
+ 
 
   
 .pages {
@@ -252,15 +127,7 @@
   .del_button:hover {
     background-color: #bd4f72; /* Darker shade of error color */
   }
-  .create {
-    max-width: 45%; /* Set the maximum width of the form */
-    margin: 0 auto; /* Center the form horizontally */
-    padding: 20px; /* Add padding to create space inside the box */
-    border-radius: 8px; /* Add rounded corners to the box */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a box shadow */
-    background-color: var(--accent); /* Set the background color of the box */
-  }
-
+ 
   
 /* Search bar styles */
 .search-bar {

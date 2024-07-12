@@ -2,10 +2,12 @@ import { Link } from 'react-router-dom';
 import ComplaintForm from '../../Components/Inquiry/ComplaintForm';
 import './Inquiry.css';
 
+
 const HomeComplaints = () => {
   return (
     <div className="">
-      <h2>Inquiries and Complaints</h2>
+      <br></br>
+<br></br> <br></br>     <h2>Inquiries and Complaints</h2>
       <ComplaintForm />
       <br></br>
       <h4 style={{ fontSize: '14px', fontWeight: 'bold' }}>Contact us: 074-289-1299</h4>

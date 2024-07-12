@@ -2,72 +2,74 @@ import React, { useEffect, useState } from "react";
 import { UseFeedbackContext } from "../../hooks/UseFeedbacksContext";
 import FeedbackDetails from "../../Components/Feedback/FeedbackDetails";
 import FeedbackForm from "../../Components/Feedback/FeedbakForm";
-import StarRating from "../../Components/Feedback/StarRating"; // Import StarRating component
+import StarRating from "../../Components/Feedback/StarRating";
 import { Link } from 'react-router-dom';
-import './HomeFeedback.css'
+import './HomeFeedback.css';
+
+import HorizontalScrollingBar from "../../Components/Feedback/HorizontalScrollingBar";
 
 const HomeFeedback = () => {
   const { feedbacks, dispatch } = UseFeedbackContext();
-  const [averageRating, setAverageRating] = useState(0); // State to hold average rating
+  const [averageRating, setAverageRating] = useState(0);
 
   useEffect(() => {
     const fetchFeedbacks = async () => {
-      const response = await fetch("http://localhost:8070/api/feedbacks");
-      const json = await response.json();
+      try {
+        const response = await fetch("http://localhost:8070/api/feedbacks");
+        const json = await response.json();
 
-      if (response.ok) {
-        dispatch({ type: "SET_FEEDBACKS", payload: json });
+        if (response.ok) {
+          dispatch({ type: "SET_FEEDBACKS", payload: json });
 
-        // Calculate average rating
-        if (json.length > 0) {
-          const totalRating = json.reduce((acc, feedback) => acc + feedback.rating, 0);
-          const avgRating = totalRating / json.length;
-          setAverageRating(avgRating);
+          if (json.length > 0) {
+            const totalRating = json.reduce((acc, feedback) => acc + feedback.rating, 0);
+            const avgRating = totalRating / json.length;
+            setAverageRating(avgRating);
+          }
         }
+      } catch (error) {
+        console.error("Error fetching feedbacks:", error);
       }
     };
 
     fetchFeedbacks();
   }, [dispatch]);
 
-   // Function to update feedback in parent component
-   const handleUpdateFeedback = (updatedFeedback) => {
-    // Find the index of the updated feedback in the array
+  const handleUpdateFeedback = (updatedFeedback) => {
     const index = feedbacks.findIndex((fb) => fb._id === updatedFeedback._id);
-    // Create a new array with the updated feedback
     const updatedFeedbacks = [...feedbacks];
     updatedFeedbacks[index] = updatedFeedback;
-    // Update the state with the new array
     dispatch({ type: 'SET_FEEDBACKS', payload: updatedFeedbacks });
   };
 
-  return ( 
-  <div className="home-feedback-container" style={{ display: 'flex', justifyContent: 'space-between' }}>
-    <br></br>
-  {/* Form on the left side */}
-  <div className="feedback-form" style={{ width: '45%' }}>
-  <br></br>
-    <FeedbackForm />
-  </div>
+  return (
+    <div className="home-feedback-container">
+      <br /><br /><br />
+      <HorizontalScrollingBar feedbacks={feedbacks} />
 
-  {/* Feedbacks on the right side */}
-  <div className="feedbacks" style={{ width: '55%' }}>
-    <div className="average-rating">
-      <h3>Average Rating</h3>
-      {/* Render average rating using StarRating component */}
-      <StarRating rating={averageRating} />
-      {/* Optionally display the average rating value */}
-      <p>{averageRating.toFixed(2)} / 5</p>
-    </div>
-    {feedbacks &&
-      feedbacks.map((feedback) => (
-        <FeedbackDetails 
-          key={feedback._id} 
-          feedback={feedback} 
-          onUpdateFeedback={handleUpdateFeedback} // Pass the function to update feedback
-        />
-      ))}
-  </div>
+      <div className="feedback-section">
+        <br></br>
+        <div className="feedback-form">
+          <br></br><br></br>
+          <FeedbackForm />
+        </div>
+
+        <div className="feedbacks">
+          <div className="average-rating">
+            <h2 style={{ textAlign:'left' }}>Average Rating</h2>
+            <StarRating rating={averageRating} />
+            <p>{averageRating.toFixed(2)} / 5</p>
+          </div>
+          {feedbacks &&
+            feedbacks.map((feedback) => (
+              <FeedbackDetails
+                key={feedback._id}
+                feedback={feedback}
+                onUpdateFeedback={handleUpdateFeedback}
+              />
+            ))}
+        </div>
+      </div>
       <Link to="/check-feedback">Check All Feedbacks</Link>
     </div>
   );

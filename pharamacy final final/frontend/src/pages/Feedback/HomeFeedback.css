@@ -1,25 +1,23 @@
 /* google font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
-/* layout *//* index.css */
-
-/* Set color variables */
+/* layout */
 :root {
-  --primary: #164A41; /* Primary color */
-  --secondary: #4D774E; /* Secondary color */
-  --accent: #9DC88D; /* Accent color */
-  --hover: #F1B24A; /* hover color */
-  --text: #FFFFFF; /* Text color */
+  --primary: #164A41;
+  --secondary: #4D774E;
+  --accent: #9DC88D;
+  --hover: #F1B24A;
+  --text: #FFFFFF;
   --error: rgb(179, 21, 21);
-  --warnning: rgb(221, 167, 167);
+  --warning: rgb(221, 167, 167);
 }
 
 /* Body and general styling */
 body {
-  background: var(--text); /* Set background color */
-  color: var(--primary); /* Set text color */
+  background: var(--text);
+  color: var(--primary);
   margin: 0;
-  font-family: "Poppins", sans-serif; /* Use specified font family */
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
@@ -39,12 +37,12 @@ body {
 
 /* Header styling */
 header {
-  background: var(--primary); /* Set header background color */
-  color: var(--text); /* Set header text color */
+  background: var(--primary);
+  color: var(--text);
 }
 
 header a {
-  color: var(--text); /* Set link color */
+  color: var(--text);
   text-decoration: none;
 }
 
@@ -56,18 +54,20 @@ header a {
 }
 
 .feedback-details {
-  background: var(--accent); /* Set feedback details background color */
+  background: var(--accent);
   border-radius: 4px;
   margin: 20px auto;
   padding: 20px;
   position: relative;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+  width: 80%; /* Set feedback details width */
 }
 
 .feedback-details p {
   margin: 0;
   font-size: 0.9em;
-  color: var(--primary); /* Set text color */
+  color: var(--primary);
+  word-wrap: break-word; 
 }
 
 .feedback-details span {
@@ -75,10 +75,29 @@ header a {
   top: 20px;
   right: 20px;
   cursor: pointer;
-  background: var(--primary); /* Set span background color */
+  background: var(--primary);
   padding: 6px;
   border-radius: 50%;
-  color: #ffffff; /* Set span text color */
+  color: #ffffff;
+}
+.average-rating {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+ 
+  width: 80%; /* Set feedback details width */
+}
+
+.average-rating h3 {
+  margin-top: 0;
+}
+
+.average-rating p {
+  margin-bottom: 0;
 }
 
 .rating-buttons {
@@ -86,9 +105,9 @@ header a {
 }
 
 .rating-buttons button {
-  color: #164A41; /* Set button text color */
+  color: #164A41;
   margin-right: 5px;
-  background-color: var(--accent); /* Set default button background color */
+  background-color: var(--accent);
   border: none;
   padding: 8px 12px;
   border-radius: 4px;
@@ -97,11 +116,11 @@ header a {
 }
 
 .rating-buttons button:hover {
-  background-color: var(--hover); /* Change button background color on hover */
+  background-color: var(--hover);
 }
 
 .rating-buttons button.selected {
-  background-color: var(--hover); /* Set selected button background color */
+  background-color: var(--hover);
 }
 
 label,
@@ -109,12 +128,10 @@ input {
   display: block;
 }
 
-
-
 form button {
-  background: var(--accent); /* Set button background color */
+  background: var(--text);
   border: 0;
-  color: var(--primary); /* Set button text color */
+  color: var(--primary);
   padding: 10px;
   font-family: "Poppins";
   border-radius: 4px;
@@ -123,39 +140,40 @@ form button {
 }
 
 form button:hover {
-  background: var(--hover); /* Change button background color on hover */
+  background: var(--hover);
 }
 
 div.error {
   padding: 10px;
-  background: var(--warning); /* Set error background color */
+  background: var(--warning);
   border: 1px solid var(--error);
   color: var(--error);
   border-radius: 4px;
   margin: 20px 0;
 }
-.action-buttons button , .edit_more{
-  border-radius: 8px; /* Adjust border radius for a softer look */
-  padding-left:10px;
-  padding-right: 10px; /* Uniform padding for better spacing */
-  background-color: #FFFFFF; /* White background */
-  border: 2px solid transparent; /* Set a thin border with transparent color */
-  font-family: "Poppins", sans-serif; /* Set font family */
-  font-size: 14px; /* Adjust font size */
-  font-weight: 600; /* Bold font weight */
-  color: #333333; /* Dark text color */
-  cursor: pointer; /* Show pointer cursor on hover */
-  transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Smooth transition for visual effect */
 
-  /* Add hover effect */
+.action-buttons button,
+.edit_more {
+  border-radius: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #ffffff;
+  border: 2px solid transparent;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+
   &:hover {
-    background-color: #F1B24A; /* Change background color on hover */
-    border-color: #F1B24A; /* Change border color on hover */
-    color: #FFFFFF; /* Change text color on hover */
+    background-color: #f1b24a;
+    border-color: #f1b24a;
+    color: #ffffff;
   }
 }
-/* styles.css */
 
+/* Style the star rating */
 .star-rating {
   display: inline-block;
   font-size: 24px;
@@ -168,35 +186,38 @@ div.error {
 
 /* Style the filled stars */
 .filled {
-  color: gold; /* Set the color of filled stars */
+  color: gold;
 }
 
 /* Style the empty stars */
 .empty {
-  color: #ccc; /* Set the color of empty stars */
+  color: #ccc;
 }
 
-.create {
- height:fit-content;
-   margin: 0 auto; /* Center the form horizontally */
-  padding: 20px; /* Add padding to create space inside the box */
-  border-radius: 8px; /* Add rounded corners to the box */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a box shadow */
-  background-color: #fff; /* Set the background color of the box */
+.create1 {
+  height: fit-content;
+
+  width: 100%;
+  margin: 0 auto; /* Center the form horizontally */
+    padding: 20px; /* Add padding to create space inside the box */
+    border-radius: 8px; /* Add rounded corners to the box */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a box shadow */
+    background-color: var(--accent); /* Set the background color of the box */
+}
+.create1 h3{
+  font-size: large;
+  text-align: center;
 }
 
-.average-rating {
-  background-color: #f9f9f9; /* Background color */
-  border: 1px solid #ddd; /* Border */
-  padding: 20px; /* Padding */
-  border-radius: 8px; /* Border radius */
-  margin-top: 20px; /* Margin top */
+.feedback-section {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.average-rating h3 {
-  margin-top: 0; /* Remove margin top for h3 */
-}
-
-.average-rating p {
-  margin-bottom: 0; /* Remove margin bottom for p */
+.feedback-form {
+width: 100%;
+  margin-right: 20px; /* Add margin for spacing */
+  padding-left: 5%;
 }
