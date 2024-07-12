@@ -171,66 +171,67 @@ const Home = () => {
       {/* About Us section */}
       {/* Footer section */}
       <footer style={{
-        backgroundColor: '#2c3e50',
+  backgroundColor: '#394b3b', // Dark green background
+  color: '#ecf0f1', // Light text color
+  textAlign: 'center',
+  padding: '50px 0',
+  display: 'flex',
+  justifyContent: 'space-around',
+  flexWrap: 'wrap'
+}}>
+  <div style={{ flex: '1 1 300px', margin: '20px' }}>
+    <h2 style={{
+      borderBottom: '2px solid #ecf0f1',
+      display: 'inline-block',
+      paddingBottom: '10px',
+      color: '#8FCB81' // Brighter green for the headings
+    }}>Our Pharmacy</h2>
+    <p>Central Pharmacy is committed to providing high-quality healthcare solutions. Trusted by the community since 2001.</p>
+  </div>
+  <div style={{ flex: '1 1 300px', margin: '20px' }}>
+    <h2 style={{
+      borderBottom: '2px solid #ecf0f1',
+      display: 'inline-block',
+      paddingBottom: '10px',
+      color: '#8FCB81' // Brighter green for the headings
+    }}>Follow Us</h2>
+    <div>
+      <a href="#facebook" style={{
         color: '#ecf0f1',
-        textAlign: 'center',
-        padding: '50px 0',
-        display: 'flex',
-        justifyContent: 'space-around',
-        flexWrap: 'wrap'
-      }}>
-        <div style={{ flex: '1 1 300px', margin: '20px' }}>
-          <h2 style={{
-            borderBottom: '2px solid #ecf0f1',
-            display: 'inline-block',
-            paddingBottom: '10px',
-            color: '#f39c12'
-          }}>Our Pharmacy</h2>
-          <p>Central Pharmacy is committed to providing high-quality healthcare solutions. Trusted by the community since 2001.</p>
-        </div>
-        <div style={{ flex: '1 1 300px', margin: '20px' }}>
-          <h2 style={{
-            borderBottom: '2px solid #ecf0f1',
-            display: 'inline-block',
-            paddingBottom: '10px',
-            color: '#f39c12'
-          }}>Follow Us</h2>
-          <div>
-            <a href="#facebook" style={{
-              color: '#ecf0f1',
-              margin: '0 10px',
-              textDecoration: 'none',
-              transition: 'color 0.3s'
-            }} onMouseOver={(e) => e.target.style.color = '#f39c12'}
-              onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>Facebook</a>
-            <a href="#twitter" style={{
-              color: '#ecf0f1',
-              margin: '0 10px',
-              textDecoration: 'none',
-              transition: 'color 0.3s'
-            }} onMouseOver={(e) => e.target.style.color = '#f39c12'}
-              onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>Twitter</a>
-            <a href="#instagram" style={{
-              color: '#ecf0f1',
-              margin: '0 10px',
-              textDecoration: 'none',
-              transition: 'color 0.3s'
-            }} onMouseOver={(e) => e.target.style.color = '#f39c12'}
-              onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>Instagram</a>
-          </div>
-        </div>
-        <div style={{ flex: '1 1 300px', margin: '20px' }}>
-          <h2 style={{
-            borderBottom: '2px solid #ecf0f1',
-            display: 'inline-block',
-            paddingBottom: '10px',
-            color: '#f39c12'
-          }}>Contact Us</h2>
-          <p>Email: <a href="mailto:info@centralpharmacy.lk" style={{ color: '#ecf0f1', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.target.style.color = '#f39c12'} onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>info@centralpharmacy.lk</a></p>
-          <p>Phone: <a href="tel:+94123456789" style={{ color: '#ecf0f1', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.target.style.color = '#f39c12'} onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>+94 123 456 789</a></p>
-          <p>Address: 123 Main Street, Pokunuwita, Sri Lanka</p>
-        </div>
-      </footer>
+        margin: '0 10px',
+        textDecoration: 'none',
+        transition: 'color 0.3s'
+      }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} // Brighter green on hover
+        onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>Facebook</a>
+      <a href="#twitter" style={{
+        color: '#ecf0f1',
+        margin: '0 10px',
+        textDecoration: 'none',
+        transition: 'color 0.3s'
+      }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} // Brighter green on hover
+        onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>Twitter</a>
+      <a href="#instagram" style={{
+        color: '#ecf0f1',
+        margin: '0 10px',
+        textDecoration: 'none',
+        transition: 'color 0.3s'
+      }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} // Brighter green on hover
+        onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>Instagram</a>
+    </div>
+  </div>
+  <div style={{ flex: '1 1 300px', margin: '20px' }}>
+    <h2 style={{
+      borderBottom: '2px solid #ecf0f1',
+      display: 'inline-block',
+      paddingBottom: '10px',
+      color: '#8FCB81' // Brighter green for the headings
+    }}>Contact Us</h2>
+    <p>Email: <a href="mailto:info@centralpharmacy.lk" style={{ color: '#ecf0f1', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>info@centralpharmacy.lk</a></p>
+    <p>Phone: <a href="tel:+94123456789" style={{ color: '#ecf0f1', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>+94 123 456 789</a></p>
+    <p>Address: 123 Main Street, Pokunuwita, Sri Lanka</p>
+  </div>
+</footer>
+
     </div>
   );
 }
