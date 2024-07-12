@@ -84,7 +84,7 @@ const Home = () => {
         </SwiperSlide>
       </Swiper>
       <div style={{ padding: '20px 0px', paddingBottom: '20px', alignItems: 'center', margin: '10px' }}>
-        <Box sx={{ width: 1500, height: 250 }}>
+        <Box sx={{ width: '100%', height: 250, textAlign:'center', }}>
           <ImageList variant="masonry" cols={3} gap={10} className='ilist'>
             <ImageListItem>
               <div style={{ fontWeight: 'bold', padding: '0 40px', textAlign: 'center' }}>
@@ -117,6 +117,7 @@ const Home = () => {
           </ImageList>
         </Box>
       </div>
+      <br></br><br></br>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px' }}>
         <div style={{ width: '50%', position: 'relative' }}>
           <img
@@ -138,7 +139,7 @@ const Home = () => {
           />
           <div style={{
             position: 'absolute',
-            top: '0',
+            bottom: '0',
             width: '100%',
             height: '50%',
             background: 'rgba(255, 255, 255, 0.6)',  // Light color with transparency
