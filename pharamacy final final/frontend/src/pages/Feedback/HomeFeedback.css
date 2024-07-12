@@ -204,7 +204,7 @@ div.error {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a box shadow */
     background-color: var(--accent); /* Set the background color of the box */
 }
-.create1 h3{
+.create1 h2{
   font-size: large;
   text-align: center;
 }

@@ -33,14 +33,12 @@ const Header = () => {
             <li className="nav-item" style={{ marginRight: '40px' }}>
               <a className="nav-link" href="/Aboutus">About Us</a>
             </li>
-            <li className="nav-item" style={{ marginRight: '40px' }}>
-              <a className="nav-link" href="/Contactus">Contact Us</a>
-            </li>
+           
             <li className="nav-item" style={{ marginRight: '40px' }}>
               <a className="nav-link" href="/feedbacks">Feedbacks</a>
             </li>
             <li className="nav-item" style={{ marginRight: '40px' }}>
-              <a className="nav-link" href="/add-complaint">Complaints</a>
+              <a className="nav-link" href="/add-complaint">Contact Us</a>
             </li>
             <li className="nav-item" style={{ marginRight: '40px' }}>
               <a className="nav-link" href="/medicine">Medicine</a>
