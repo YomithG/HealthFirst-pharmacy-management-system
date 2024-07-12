@@ -114,9 +114,9 @@ const FeedbackDetails = ({ feedback, onUpdateFeedback }) => {
      <br></br>
                     <div className="action-buttons">
                      
-                                 <button onClick={handleClick}>delete</button>
+                               {/*  <button onClick={handleClick}>delete</button>
                                 
-                                <button onClick={handleEdit}>Edit</button>  
+                                <button onClick={handleEdit}>Edit</button>  */}
                         
                    
                        
