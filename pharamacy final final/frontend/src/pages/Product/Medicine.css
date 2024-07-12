@@ -22,6 +22,7 @@
     padding: 0px 5px;
 }
 .searchbtn1{
+    color: whitesmoke;
     height: 40px;
     padding: 0px 10px;
     background-color: #5a7b5e;
@@ -150,4 +151,11 @@ Row{
   font-optical-sizing: auto;
   font-style: normal;
   font-style: italic;
+}
+
+.ilist{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Increased shadow intensity */
+    color: #333;
+    padding: 50px;
+    border-radius: 30px;
 }
