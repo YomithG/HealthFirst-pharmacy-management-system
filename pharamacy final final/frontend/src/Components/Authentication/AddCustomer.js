@@ -17,28 +17,27 @@ const AddCustomer = () => {
 
   const sendData = (e) => {
     e.preventDefault();
-  
+
     // Phone number validation
-    const phoneRegex = /^(07)\d{8}$/; // Regex for phone number starting with "07" and 10 digits
+    const phoneRegex = /^07\d{8}$/; // Regex for phone number starting with "07" and 10 digits
     if (!phoneRegex.test(phoneNo)) {
       setError("Please enter a valid phone number starting with '07' and containing 10 digits");
-    } else {
-      setError(""); // Clear the error message if the phone number is valid
+      return;
     }
-  
+
     // NIC validation
     const nicRegex = /^(?:\d{9}[xXvV]|[0-9]{12})$/;
     if (!nicRegex.test(nic.toUpperCase())) {
       setError("Please enter a valid NIC (9 digits followed by 'x' or 'v', or 12 digits)");
       return;
     }
-  
+
     // Other field validations
     if (!fullName || !gender || !address || !city || !district || !dob || !email || !username || !password) {
       setError("All fields are required");
       return;
     }
-  
+
     const customerData = {
       FullName: fullName,
       Gender: gender,
@@ -52,9 +51,9 @@ const AddCustomer = () => {
       Username: username,
       Password: password,
     };
-  
+
     console.log("Sending customer data:", customerData);
-  
+
     axios.post("http://localhost:8070/customer_account/add", customerData)
       .then(() => {
         setError("");
@@ -76,8 +75,6 @@ const AddCustomer = () => {
         setError("Failed to add customer: " + err.message);
       });
   };
-  
-  
 
   return (
     <div className="container-fluid" style={{ minHeight: "100vh", marginTop: "100px" }}>
@@ -153,5 +150,3 @@ const AddCustomer = () => {
 };
 
 export default AddCustomer;
-
-

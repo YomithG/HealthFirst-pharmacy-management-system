@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import { useSalaryContext } from '../hooks/useSalaryContext'
 
 const Salaryform = () => {
@@ -12,6 +12,30 @@ const Salaryform = () => {
     const [year, setYear] = useState('')   
     const [error, setError] = useState(null)
     const [emptyFields, setEmptyFields] = useState([])
+
+    useEffect(() => {
+        // Fetch existing salary records for the employee when month or year changes
+        const fetchExistingSalaries = async () => {
+            if (name && month && year) {
+                try {
+                    const response = await fetch(`/api/salary?name=${name}&month=${month}&year=${year}`);
+                    const data = await response.json();
+                    if (response.ok) {
+                        // If records exist for the selected month and year, set duplication error
+                        if (data.length > 0) {
+                            setError('Salary record already exists for the selected month and year');
+                        } else {
+                            setError(null);
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error fetching existing salaries:', error);
+                }
+            }
+        };
+
+        fetchExistingSalaries();
+    }, [name, month, year]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -27,6 +51,17 @@ const Salaryform = () => {
             }
         }
     
+           // Validate fields to accept only positive numbers greater than 0
+    if (['basic', 'leaves', 'oThours'].includes(name)) {
+        const isValidNumber = Number(value) > 0 && !isNaN(value);
+        if (!isValidNumber) {
+            setError(`${name.charAt(0).toUpperCase() + name.slice(1)} must be a positive number greater than 0`);
+            return;
+        } else {
+            setError(null); // Clear error if validation passes
+        }
+    }
+
         // Update state for other fields
         switch (name) {
             case 'name':
@@ -139,7 +174,8 @@ const Salaryform = () => {
             <label>Basic(Rs:):</label>
             <input
                 type="number"
-                onChange={(e) => setBasic(e.target.value)}
+                onChange={handleChange}
+                name="basic"
                 value={basic}
                 className={emptyFields.includes('basic') ? 'error' : ''}
             />
@@ -147,7 +183,8 @@ const Salaryform = () => {
             <label>Leaves:</label>
             <input
                 type="number"
-                onChange={(e) => setLeaves(e.target.value)}
+                onChange={handleChange}
+                name="leaves"
                 value={leaves}
                 className={emptyFields.includes('leaves') ? 'error' : ''}
             />
@@ -155,7 +192,8 @@ const Salaryform = () => {
             <label>OThours:</label>
             <input
                 type="number"
-                onChange={(e) => setOThours(e.target.value)}
+                onChange={handleChange}
+                name="oThours"
                 value={oThours}
                 className={emptyFields.includes('oThours') ? 'error' : ''}
             />

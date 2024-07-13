@@ -1,28 +1,61 @@
+body{
+  margin: 0;
+  overflow-x: hidden;
+}
+
 .item-details {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 40px 0%;
+  margin-bottom: 80px;
   background-color: #f9f9f9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   color: #333;
+  width: calc(100% - 5px);
+  max-width: 100%;
 }
-
+.item-details:hover{
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.703);
+}
+.out-of-stock{
+  position: relative;
+  opacity: 0.6;
+}
+.out-of-stock-label{
+  position: absolute;
+  top: 110px;
+  right: 35px;
+  background-color: red;
+  color: white;
+  padding: 5px 30px;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 5px;
+  z-index: 1;
+}
 .item-details h4 {
   margin-bottom: 10px;
   font-size: 20px;
   font-weight: bold;
+  text-align: center;
 }
 
 .item-details img {
-  width: 150px; /* Adjust image width as needed */
+  width: 150px; 
   margin-bottom: 15px;
+  height: 200px;
+  align-self:center;
 }
-
+.item-details img:hover {
+  height: 200px;
+  width: 250px;
+  object-fit: cover;
+}
 .item-details p {
   margin-bottom: 5px;
   font-size: 16px;
@@ -34,20 +67,20 @@
   font-weight: bold;
 }
 
-.item-details button {
-  background-color: #ffc107; /* Gold color */
+.item-details button:hover { 
+  color: #000;
+  border: 1px solid #394b3b;
+  background-color: whitesmoke;
+}
+
+.item-details button{
+  background-color: #5a7b5e; 
   color: #fff;
-  border: none;
-  border-radius: 5px;
+  border-radius: 60px;
   padding: 8px 16px;
   cursor: pointer;
 }
 
-.item-details button:hover {
-  background-color: #ffca28; /* Lighter shade of gold on hover */
-}
-
-/* Styling for input */
 .item-details input[type="number"] {
   width: 50px;
   margin-right: 10px;
@@ -56,19 +89,27 @@
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
-/* Disabled button style */
 .item-details button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
-.p123{
+.p123, .pc123{
   color: black;
+  align-self:center;
+  text-align: center;
 }
 .item-details h4 {
   margin-bottom: 10px;
-  font-size: 24px; /* Increased font size */
+  font-size: 24px; 
   font-weight: bold;
-  color: #28a745; /* Green color */
+  color: #5a7b5e; 
+}
+.pc123{
+  font-style: italic;
+  font-weight: normal;
+}
+.btnAdd{
+  font-weight: normal;
+  border: #394b3b;
 }
 

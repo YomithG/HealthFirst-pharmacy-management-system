@@ -44,10 +44,12 @@ const categoryRoutes = require('./Routes/Product/categoryRoute');
 const productRoutes = require('./Routes/Product/productRoute');
 const detailsRoutes = require('./Routes/Product/oDetailsRoute');
 
+//Attendance
 const salaryRoutes = require('./Routes/Attendance/salary')
 const attdRoutes = require('./Routes/Attendance/attendance')
 const leaveRoutes = require('./Routes/Attendance/leave')
 const bonusRoutes = require('./Routes/Attendance/bonus')
+
 const AccountRouter = require("./Routes/Authentication/customer.js");
 const employeeRouter = require("./Routes/Authentication/employee.js");
 
@@ -60,9 +62,10 @@ app.use('/api/feedbacks', feedbackRoutes)
 app.use('/api/complaints', complaintRoutes);
 app.use("/form", formRouter);
 
-app.use('/api/salary', salaryRoutes)
-app.use('/api/attendance', attdRoutes)
-app.use('/api/leave', leaveRoutes)
+//app.use('/api/salary', salaryRoutes)
+//app.use('/api/attendance', attdRoutes)
+//app.use('/api/leave', leaveRoutes)
+
 app.use("/delivery", deliveryRouter);
 
 // Define routes

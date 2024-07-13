@@ -10,7 +10,7 @@ const Admin = () => {
   const navigate = useNavigate();
   const handleLogin = () => {
     // Hardcoded username and password for demonstration
-    if (username === '' && password === '') {
+    if (username === 'admin' && password === '12345678') {
       navigate('/admin-dashboard')
       
       setError('');

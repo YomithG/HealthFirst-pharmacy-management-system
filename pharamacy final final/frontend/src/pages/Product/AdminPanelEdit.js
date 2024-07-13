@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Toast from "../../utils/Toast";
+import { warningMessage1 } from "../../utils/Alert";
 
 const AdminPanelEdit = () => {
   const [items, setItems] = useState([]);
@@ -26,12 +27,14 @@ const AdminPanelEdit = () => {
     fetchItems();
   }, []);
 
+  //set the details to edit
   const editItem = (itemId) => {
     const itemToEdit = items.find(item => item._id === itemId);
     setEditedItem({ ...itemToEdit });
     setIsEditing(true);
   };
   
+  //save the edited details to the db
   const saveChanges = async () => {
     try {
       console.log("Attempting to save changes...");
@@ -57,19 +60,22 @@ const AdminPanelEdit = () => {
     }
   };
   
-   
+   //if cancel updating
   const cancelEditing = () => {
     setIsEditing(false);
     setEditedItem(null);
   };
-
+  //confirm deleting
   const confirmDeleteItem = (itemId) => {
     setDeleteItemId(itemId);
-    if (window.confirm("Are you sure you want to delete this item?")) {
-      deleteItem(itemId);
-    }
+    warningMessage1(
+      "Are you sure ?", "Once confirmed the selected item will no longer be available!",
+      () => {
+        deleteItem(itemId);
+      }
+    )
   };
-
+  //delete details
   const deleteItem = async (itemId) => {
     try {
       const response = await fetch(`http://localhost:8070/api/product/${itemId}`, {
@@ -87,16 +93,16 @@ const AdminPanelEdit = () => {
   };
 
   return (
-    <div>
+    <div style={{alignItems:'center',paddingLeft:'30px'}}><br/><br/><br/><br/>
       <h2>Admin Panel</h2>
       <div>
         <button className="btn btn-primary" onClick={()=>navigate('/add-product')}>
           ADD PRODUCT
         </button>
       </div>
-      <Table striped bordered hover>
+      <Table striped bordered hover style={{width:'100%'}}>
         <thead>
-          <tr>
+          <tr style={{padding:'10px',width:'100%'}}>
             <th>Title</th>
             <th>Description</th>
             <th>Category</th>
@@ -104,23 +110,24 @@ const AdminPanelEdit = () => {
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style={{padding:'10px'}}>
           {items.map((item) => (
             <tr key={item._id}>
-              <td>{isEditing && editedItem._id === item._id ? <input value={editedItem.title || ''} onChange={(e) => setEditedItem({...editedItem, title: e.target.value})} /> : item.title}</td>
-              <td>{isEditing && editedItem._id === item._id ? <input value={editedItem.description || ''} onChange={(e) => setEditedItem({...editedItem, description: e.target.value})} /> : item.description}</td>
-              <td>{isEditing && editedItem._id === item._id ? <input value={editedItem.category || ''} onChange={(e) => setEditedItem({...editedItem, category: e.target.value})} /> : item.category}</td>
-              <td>{isEditing && editedItem._id === item._id ? <input value={editedItem.countInStock || ''} onChange={(e) => setEditedItem({...editedItem, countInStock: e.target.value})} /> : item.countInStock}</td>
-              <td>
+              <td style={{padding:'5px'}}>{isEditing && editedItem._id === item._id ? <input value={editedItem.title || ''} onChange={(e) => setEditedItem({...editedItem, title: e.target.value})} /> : item.title}</td>
+              <td style={{padding:'5px 15px',width:'500px'}}>{isEditing && editedItem._id === item._id ? <input value={editedItem.description || ''} onChange={(e) => setEditedItem({...editedItem, description: e.target.value})} /> : item.description}</td>
+              <td style={{padding:'5px 15px'}}>{isEditing && editedItem._id === item._id ? <input value={editedItem.category || ''} onChange={(e) => setEditedItem({...editedItem, category: e.target.value})} /> : item.category}</td>
+              <td style={{padding:'5px 20px'}}>{isEditing && editedItem._id === item._id ? <input value={editedItem.countInStock || ''} onChange={(e) => setEditedItem({...editedItem, countInStock: e.target.value})} /> : item.countInStock}</td>
+              <td style={{padding:'20px 15px', width:'300px'}}>
                 {isEditing && editedItem._id === item._id ? (
                   <>
-                    <Button variant="success" onClick={saveChanges}>Save</Button>{' '}
-                    <Button variant="danger" onClick={cancelEditing}>Cancel</Button>
+                    <Button variant="success" onClick={saveChanges} style={{padding:'7px 20px'}}><h6>Save</h6></Button>{' '}
+                    <Button variant="danger" onClick={cancelEditing} style={{padding:'7px 20px'}}><h6>Cancel</h6></Button>
                   </>
                 ) : (
                   <>
-                    <Button variant="info" onClick={() => editItem(item._id)}>Edit</Button>{' '}
-                    <Button variant="danger" onClick={() => confirmDeleteItem(item._id)}>Delete</Button>
+                    <Button variant="info" onClick={() => editItem(item._id)} 
+                      style={{padding:'5px 20px', backgroundColor:'#5a7b5e'}}><h6>Edit</h6></Button>{' '}
+                    <Button variant="danger" onClick={() => confirmDeleteItem(item._id)} style={{padding:'7px 20px'}}><h6>Delete</h6></Button>
                   </>
                 )}
               </td>

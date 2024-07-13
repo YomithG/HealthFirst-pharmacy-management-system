@@ -57,6 +57,7 @@ const AddProductForm = () => {
     if (!response.ok) {
       setError(json.error);
     }
+    //after submitting set all the fields to null again
     if (response.ok) {
       setImage("");
       setTitle("");
@@ -74,8 +75,9 @@ const AddProductForm = () => {
   return (
     // align the form in the center with a width of 50%
     <form style={{ width: "50%", margin: "auto" }} onSubmit={handleSubmit}>
+      <br/><br/><br/><br/>
       <h3>Add a new Product</h3>
-
+      <br/><br/>
       {/* //upload image */}
       <div className="form-group">
         <label className="my-2" htmlFor="image">
@@ -168,35 +170,35 @@ const AddProductForm = () => {
       Price
       </label>
       <input
-    type="number"
-    className="form-control"
-    id="price"
-    placeholder="Enter price"
-    value={price}
-    onChange={(e) => setPrice(e.target.value)}
-    required
-    min="0" // Prevents negative values
+        type="number"
+        className="form-control"
+        id="price"
+        placeholder="Enter price"
+        value={price}
+        onChange={(e) => setPrice(e.target.value)}
+        required
+        min="0" //cannot enter values for price less than 0
   />
-</div>
+      </div>
 
-<div className="form-group">
-  <label className="my-2" htmlFor="countInStock">
-    Count in Stock
-  </label>
-  <input
-    type="number"
-    className="form-control"
-    id="countInStock"
-    placeholder="Enter count in stock"
-    value={countInStock}
-    onChange={(e) => setCountInStock(e.target.value)}
-    required
-    min="0" // Prevents negative values
-    step="1" // Allows only whole numbers
-  />
-</div>
+      <div className="form-group">
+      <label className="my-2" htmlFor="countInStock">
+      Count in Stock
+      </label>
+      <input
+        type="number"
+        className="form-control"
+        id="countInStock"
+        placeholder="Enter count in stock"
+        value={countInStock}
+        onChange={(e) => setCountInStock(e.target.value)}
+        required
+        min="0" //cannot enter values less than 0 for stock
+        step="1" //enter only whole numbers for stock
+      />
+      </div>
 
-
+      {/* submit button */}
       <button type="submit" className="btn btn-primary mt-2">
         Add Product
       </button>

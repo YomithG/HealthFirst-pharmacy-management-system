@@ -32,8 +32,8 @@ const CheckFeedback = () => {
         <CheckingDetails key={feedback._id} feedback={feedback} />
       ))}
 
-<button onClick={() => window.history.back()}>Go Back</button>
-      <button onClick={handleGenerateReport}>Generate Report</button>
+<button style={{ backgroundColor: '#164A41', color: '#FFFFFF', padding: '10px', border: 'none', borderRadius: '5px', margin: '10px', cursor: 'pointer' }} onClick={() => window.history.back()}>Go Back</button>
+      <button style={{ backgroundColor: '#4D774E', color: '#FFFFFF', padding: '10px', border: 'none', borderRadius: '5px', margin: '10px', cursor: 'pointer' }} onClick={handleGenerateReport}>Generate Report</button>
       {showReport && <FeedbackReport feedbacks={feedbacks} />}
     </div>
   );

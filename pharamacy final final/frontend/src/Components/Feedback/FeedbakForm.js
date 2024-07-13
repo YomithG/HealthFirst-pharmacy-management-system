@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { UseFeedbackContext } from '../../hooks/UseFeedbacksContext';
+import '../../pages/Feedback/HomeFeedback.css'
 
 const FeedbackForm = () => {
   const { dispatch } = UseFeedbackContext();
@@ -43,23 +44,32 @@ const FeedbackForm = () => {
   };
 
   return (
-    <form className="create" onSubmit={handleSubmit}>
-      <h3>Add your feedback</h3>
+    <form className="create1" onSubmit={handleSubmit}>
+      <h2 style={{ color:'#164A41'
+            
+          }} ><b>Add your feedback</b></h2>
 
-      <label>Name:</label>
+      <label style={{ color:'#164A41'
+            
+          }} >Name:</label>
       <input type="text" onChange={(e) => setUsername(e.target.value)} value={username} />
 
-      <label>Feedback:</label>
+      <label style={{ color:'#164A41'
+            
+          }}>Feedback:</label>
       <input type="text" onChange={(e) => setContent(e.target.value)} value={content} />
 
-      <label>Rate Us:</label>
+      <label >Rate Us:</label>
       <div className="rating-buttons">
         {[1, 2, 3, 4, 5].map((value) => (
           <button
-            key={value}
-            className={value === selectedRating ? 'selected' : ''}
-            onClick={() => handleRatingChange(value)}
-            type="button"
+          key={value}
+          className={value === selectedRating ? 'selected' : ''}
+          onClick={() => handleRatingChange(value)}
+          type="button"
+          style={{ backgroundColor:'#FFFFFF'
+            
+          }} 
           >
             {value}
           </button>

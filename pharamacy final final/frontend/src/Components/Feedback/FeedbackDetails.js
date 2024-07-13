@@ -87,34 +87,41 @@ const FeedbackDetails = ({ feedback, onUpdateFeedback }) => {
                         value={editedFeedback.rating}
                         onChange={handleChange}
                     />
-                    <button  className='edit_more' onClick={handleSaveEdit}>Save</button>
+                 {/*  <button  className='edit_more' onClick={handleSaveEdit}>Save</button>
                     <button   className='edit_more'  onClick={handleCancelEdit}>Cancel</button>
+
+
+                    */} 
                     
                 </div>
             ) : (
                 <div>
                     <p>
-                        <strong style={{ color: 'var(--text)' }}>
-                            {feedback.username}
-                        </strong>
+                        <strong style={{ color: '#0A5C36', fontWeight:'bold'  }}>
+                          <b>  {feedback.username}
+</b>                        </strong>
                     </p>
-                    <p>{feedback.content}</p>
-                    <p>
+                    <br ></br>
+                    <p style={{ fontWeight:'600' }}>{feedback.content}</p>
+                    <p style={{fontWeight:'600'}}>
                         <strong> rating: </strong>
                         {feedback.rating} stars
                     </p>
-                    <p>{formatDistanceToNow(new Date(feedback.createdAt), { addSuffix: true })}</p>
-     <br></br>
+                    <br></br>
+                    <p style={{ fontSize: '0.75rem' }}>
+                    {formatDistanceToNow(new Date(feedback.createdAt), { addSuffix: true })}
+                </p>
+     
                     <div className="action-buttons">
                      
-                                <button onClick={handleClick}>delete</button>
+                               {/*  <button onClick={handleClick}>delete</button>
                                 
-                                <button onClick={handleEdit}>Edit</button>
+                                <button onClick={handleEdit}>Edit</button>  */}
                         
                    
                        
                     </div>
-                    <br />
+                   
                 </div>
             )}
         </div>

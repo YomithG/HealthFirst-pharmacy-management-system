@@ -1,0 +1,113 @@
+.horizontal-scrolling-bar {
+  position: relative;
+  background-image: url('image.png'); /* Set your background image */
+  background-size: cover;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  overflow: hidden; /* Ensure the overlay covers the entire container */
+}
+
+.horizontal-scrolling-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 0.5 opacity */
+  z-index: 1; /* Ensure the overlay is above the background but below the content */
+}
+
+.horizontal-scrolling-bar h1 {
+  position: relative;
+  z-index: 2; /* Ensure the text is above the overlay */
+  color: white; /* Ensure the text is visible */
+}
+
+.scroll-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; /* Add some margin for spacing */
+  position: relative;
+  z-index: 2; /* Ensure the scroll container is above the overlay */
+}
+
+.scroll-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 80%; /* Adjust the width as needed */
+  position: relative;
+  z-index: 2; /* Ensure the scroll container is above the overlay */
+}
+
+.scroll-item {
+  flex: 0 0 calc(33.33% - 40px); /* Three items with 40px gap */
+  margin: 0 20px; /* 20px gap on each side = 40px total */
+  background-color: #fff; /* Set background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  border-radius: 8px; /* Add rounded corners */
+  padding: 20px; /* Add some padding for spacing */
+  position: relative;
+  z-index: 2; /* Ensure the scroll items are above the overlay */
+  text-align: left; /* Align text to the left */
+}
+
+.scroll-button {
+  background-color:  #4D774E; /* Set button background color */
+  border: none; /* Remove default border */
+  font-size: 24px; /* Set font size for the arrow */
+  cursor: pointer; /* Change cursor to pointer */
+  padding: 10px; /* Add some padding */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  border-radius: 50%; /* Make button round */
+  color: #fff; /* Set arrow color to white */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2; /* Ensure the buttons are above the overlay */
+}
+
+h3 {
+  font-size: 16px;
+  color: #164A41; /* Set text color */
+  line-height: 1.5; /* Set line height for better readability */
+}
+
+.quotation-marks {
+  font-size: 24px;
+  color:  #4D774E;
+  font-weight: bold;
+}
+
+.testimonial-name {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+  text-align: right; /* Align names to the right */
+}
+
+.dots-container {
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+  z-index: 2; /* Ensure the dots container is above the overlay */
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color:  #4D774E;
+}

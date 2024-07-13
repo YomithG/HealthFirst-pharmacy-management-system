@@ -49,6 +49,7 @@ const DeliveryPage = () => {
             // Show success message
             Toast({ type: "success", message: "Updated successfully" });
         } catch (error) {
+            // Show error message
             Toast({ type: "error", message: "Error in updating!" });
             console.error('Error updating detail: ', error);
         }
@@ -68,6 +69,7 @@ const DeliveryPage = () => {
                 Toast({ type: "success", message: "Detail deleted successfully" });
             }
         } catch (error) {
+            // Show success message
             console.error('Error deleting detail: ', error);
             Toast({ type: "error", message: "Failed to delete detail" });
         }
@@ -122,6 +124,7 @@ const DeliveryPage = () => {
         });
     
         // Total Price
+        //.reduce -> iterate over each item in orderItems array & cal a total value
         const totalPrice = detail.orderItems.reduce((total, item) => total + (item.price * item.quantity), 0);
         doc.setFont('times', 'bold');
         doc.text(`Total Price: Rs. ${totalPrice.toFixed(2)}`, margin, yOffset);

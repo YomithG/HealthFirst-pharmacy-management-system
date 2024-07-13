@@ -54,7 +54,7 @@ export default function AddDelivery() {
             });
     };
 
-
+    //validate part to select rider
     const sendData = (e) => {
         e.preventDefault();
         if(rider == "Select Rider"){

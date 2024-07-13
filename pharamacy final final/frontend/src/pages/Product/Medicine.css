@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
+      
+
+.nav11{
+    top:65px;
+    padding-bottom:25px;
+    
+    z-index: 99;
+    width:100% ;
+    align-items:center;
+}
+.searchc1{
+    width: 500px;
+    padding: 0px 500px;
+}
+.searchf1{
+    width: 500px;
+    padding: 0px 50px;
+}
+.searchbtngr1{
+    padding: 0px 5px;
+}
+.searchbtn1{
+    color: whitesmoke;
+    height: 40px;
+    padding: 0px 10px;
+    background-color: #5a7b5e;
+}
+.searchbtn1:hover{
+    color: #000;
+    border: 1px solid #394b3b;
+    background-color: #f4f4eaa5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 8px 16px;
+    cursor: pointer;
+}
+.custom-placeholder-padding::placeholder{
+    padding-left: 10px;
+}
+.bannerbc1{
+    position: relative;
+    height: 550px;
+}
+.bannerimg1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+.bannertextc1{
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    position: absolute;
+    top: 8px;
+    right: 0px;
+    margin-right: 0px;
+    text-align: center;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.bannertext1{
+    /* text-decoration: underline; */
+    font-size: 60px;
+    color: white;
+}
+.bannertext2{
+    font-style: italic;
+    font-size: 35px;
+    color: #99ccc1;
+}
+/* .categoriesC1{
+    background-color: #ada8a5;
+    align-items: center;
+    padding-left: 15px;
+} */
+.rowCustom{
+    padding-left: 5px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.rowCustom .pc-1:not(:last-child) {
+    margin-right: 20px; /* Adjusts the space between columns */
+}
+.pc-1 .imgcs {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px 0px;
+    margin-bottom: 20px;
+    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #333;
+    object-fit: cover;
+}
+
+.pc-1:hover, .imgcc1:hover,  .categorybtn1:hover{
+    object-fit: cover;
+    background-color: #f4f4eaa5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Increased shadow intensity */
+    color: #333;
+}
+
+/* .imgcs{
+    width: 105px;
+    height: 100px;
+    object-fit: cover;
+} */
+.allCategorybtn{
+    padding: 8px 8px;
+    color: white;
+    background-color: #5a7b5e ;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.allCategorybtn:hover{
+    background-color: rgb(123, 141, 62);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.categorybtn1{
+    padding: 8px 8px;
+    color: black;
+    background-color: #88a48b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.headerProducts1{
+    text-align: center;
+    margin: 20px 0px;
+}
+Row{
+    width: calc(100% - 5px);
+}
+
+/* baby-care */
+.babypara{
+    font-family: "Caveat";
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-style: italic;
+}
+
+.ilist{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Increased shadow intensity */
+    color: #333;
+    padding: 50px;
+    border-radius: 30px;
+}

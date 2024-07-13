@@ -7,14 +7,17 @@ import AllInventoryMedicines from './Components/Inventory/AllInventoryMedicines'
 import AllNewMedicines from './Components/Inventory/AllNewMedicines';
 import CheckComplaints from './pages/Inquiry/checkComplaints';
 import AllForms from './Components/SupplierManagement/ViewSuppliers';
+
+
 import Attendance from './pages/SalaryManagement/Attendance';
-import Medicine from './pages/Product/Medicine';
+
 import Leave from './pages/SalaryManagement/Leave';
 import SalaryReport from './pages/SalaryManagement/SalaryReport';
 import BonusReport from './pages/SalaryManagement/BonusReport';
 import AttendanceEmp from './pages/SalaryManagement/AttendanceEmp';
 import LeavesEmp from './pages/SalaryManagement/LeavesEmp';
 import Dashboard from './pages/SalaryManagement/Dashboard';
+
 import AddDelivery from './Components/Delivery/AddDelivery';
 import GetDelivery from './Components/Delivery/GetDelivery';
 
@@ -27,22 +30,27 @@ import HomeFeedback from './pages/Feedback/HomeFeedback';
 import HomeComplaints from './pages/Inquiry/HomeComplaints';
 
 
-
-
 // import AddItem from './pages/AddItem';
 import DelievryDetailsForm from "./Components/Product/oDetails";
+import Medicine from './pages/Product/Medicine';
+import Babycare from './pages/Product/Categories/Babycare';
+import Vitamins from './pages/Product/Categories/Vitamins';
+import Beauty from './pages/Product/Categories/Beauty';
+import Fitness from './pages/Product/Categories/Fitness';
 
 import Cart from "./pages/Product/Cart";
 import CheckoutPage from "./pages/Product/CheckoutPage";
 import Navbar from './Components/Product/Navbar';
 import Navbar2 from './Components/Inquiry/Navbar';
 import DeliveryPage from './pages/Product/DeliveryPage';
-import UploadItems from './pages/Product/UploadItem';
+
+// import UploadItems from './pages/Product/UploadItem';
+
 
 import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AdminPanelEdit from './pages/Product/AdminPanelEdit';
-import BonusPage from './pages/Attendance/Bonus';
+import Bonus from './pages/Attendance/Bonus';
 import AddSupplier from './Components/SupplierManagement/AddSupplier';
 import AddInventoryMedicine from './Components/Inventory/AddInventoryMedicine';
 import AddProductForm from './pages/Product/AddProduct';
@@ -68,6 +76,10 @@ function App() {
 
             <Route path="/" element={<Admin />} />
             <Route path="/medicine" element={<Medicine />} />
+            <Route path='/babycare' element={<Babycare />} />
+            <Route path='/vitamins' element={<Vitamins />} />
+            <Route path='/beauty' element={<Beauty />} />
+            <Route path='/fitness' element={<Fitness />} />
             <Route path="/admin" element={<Admin />} />
 
             <Route path="/cart" element={<Cart />} />
@@ -88,7 +100,7 @@ function App() {
 
             <Route path="/delivery-page" element={<DeliveryPage />} />
 
-            <Route path="/bonus" element={<BonusPage />} />
+            <Route path="/bonus" element={<Bonus />} />
             <Route path="/add-customer" element={<AddCustomer />} />
             <Route path="/add-delivery" element={<AddDelivery />} />
             <Route path="/add-supplier" element={<AddSupplier />} />
@@ -107,7 +119,8 @@ function App() {
            <Route path="/add-complaint" element={<HomeComplaints />} /> 
            <Route path="/home" element={<Home />} /> 
 
-
+          {/* Salary details */}
+          <Route path="/salary-dashboard" element={<Dashboard />} />
 
           </Routes>
         </div>
