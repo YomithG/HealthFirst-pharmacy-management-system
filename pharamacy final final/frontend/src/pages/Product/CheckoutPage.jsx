@@ -80,7 +80,7 @@ const CheckoutPage = () => {
         </div>
       </div>
       <div style={{ width: '50%', paddingRight:'30px'}}>
-        <h2>Checkout</h2><br/>
+      <br/><br/><h2>Checkout</h2><br/>
         <form
           onSubmit={handleSubmit(onSubmit)}
           autoComplete="off"

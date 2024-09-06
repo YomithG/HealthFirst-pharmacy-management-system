@@ -3,9 +3,11 @@ import Toast from "../../utils/Toast";
 import './DelievryPage.css';
 import jsPDF from 'jspdf';
 import DeliveryDetails from "../../Components/Product/DeliveryDetails";
+import { warningMessage1 } from "../../utils/Alert";
 
 const DeliveryPage = () => {
     const [details, setDetails] = useState(null);
+  const [deleteItemId, setDeleteItemId] = useState(null);
 
     useEffect(() => {
         const fetchDetails = async () => {
@@ -54,10 +56,19 @@ const DeliveryPage = () => {
             console.error('Error updating detail: ', error);
         }
     };
-    
+    //confirm deleting
+    const confirmDeleteItem = (detailId) => {
+    setDeleteItemId(detailId);
+    warningMessage1(
+      "Are you sure ?", "Once confirmed all the details will be deleted!",
+      () => {
+        handleDelete(detailId);
+      }
+    )
+  };
+
     const handleDelete = async (detailId) => {
         try {
-            if (window.confirm("Are you sure you want to delete this detail?")) {
                 const response = await fetch(`http://localhost:8070/api/delivery_details/${detailId}`, {
                     method: 'DELETE'
                 });
@@ -67,7 +78,6 @@ const DeliveryPage = () => {
                 setDetails(prevDetails => prevDetails.filter(detail => detail._id !== detailId));
                 // Show success message
                 Toast({ type: "success", message: "Detail deleted successfully" });
-            }
         } catch (error) {
             // Show success message
             console.error('Error deleting detail: ', error);
@@ -152,7 +162,7 @@ const DeliveryPage = () => {
                             detail={detail}
                             isEditable={true} // Delivery details are editable
                             onUpdate={handleUpdate}
-                            onDelete={handleDelete}
+                            onDelete={confirmDeleteItem}
                         />
                         <div className="order-details">
                             <h3>Order Detail</h3>

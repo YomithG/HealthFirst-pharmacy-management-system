@@ -53,6 +53,9 @@ const Medicine = () => {
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
+  const handleMCategoryClick = (route) => {
+    navigate(route);
+  };
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
@@ -105,9 +108,9 @@ const Medicine = () => {
         </div>
         <div className="categoriesC1">
           <br />
-          <h3 style={{ padding: "0px 5px", textAlign: "center" }}>
+          <h2 style={{ padding: "0px 5px", textAlign: "center" }}>
             Shop Our Top Categories
-          </h3>
+          </h2>
           <br />
           <div style={{ padding: "0px 160px", alignItems: "center" }}>
             <Box sx={{ width: 1500, height: 400 }}>
@@ -119,7 +122,7 @@ const Medicine = () => {
                       style={{ height: "300px", width: "200px" }}
                       src={require("../Product/Images/Vitamins-Feature.jpg")}
                       loading="lazy"
-                      onClick={() => handleCategoryClick("vitamins")}
+                      onClick={() => handleMCategoryClick('/vitamins')}
                     />
                     <ImageListItemBar
                       position="below"
@@ -134,7 +137,7 @@ const Medicine = () => {
                       style={{ height: "300px", width: "200px" }}
                       src={require("../Product/Images/baby.jpeg")}
                       loading="lazy"
-                      onClick={() => handleCategoryClick("babycare")}
+                      onClick={() => handleMCategoryClick("/babycare")}
                     />
                     <ImageListItemBar
                       position="below"
@@ -149,7 +152,7 @@ const Medicine = () => {
                       style={{ height: "300px", width: "200px" }}
                       src={require("../Product/Images/beauty.jpeg")}
                       loading="lazy"
-                      onClick={() => handleCategoryClick("beauty")}
+                      onClick={() => handleMCategoryClick("/beauty")}
                     />
                     <ImageListItemBar
                       position="below"
@@ -164,7 +167,7 @@ const Medicine = () => {
                       style={{ height: "300px", width: "200px" }}
                       src={require("../Product/Images/weight.jpg")}
                       loading="lazy"
-                      onClick={() => handleCategoryClick("fitness")}
+                      onClick={() => handleMCategoryClick("/fitness")}
                     />
                     <ImageListItemBar
                       position="below"
@@ -177,9 +180,9 @@ const Medicine = () => {
           </div>
           <br />
           <div className="categoriesM" style={{ padding: "0px 30px" }}>
-            <h3 style={{ padding: "0px 5px", textAlign: "center" }}>
+            <h2 style={{ padding: "0px 5px", textAlign: "center" }}>
               Choose Medicines by Categories
-            </h3>
+            </h2>
             <br />
             {categories.map((category) => (
               <button
@@ -236,29 +239,68 @@ const Medicine = () => {
           </div>
         </div>
       </div>
-      <footer
-        style={{
-          backgroundColor: "#333",
-          color: "#fff",
-          textAlign: "center",
-          padding: "50px 0",
-        }}
-      >
-        <div>
-          <h2>Our Pharmacy</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div>
-          <h2>Follow Us</h2>
-          <div>
-            <a href="#facebook">Facebook</a> | <a href="#twitter">Twitter</a> |{" "}
-            <a href="#instagram">Instagram</a>
-          </div>
-        </div>
-        <div>
-          <h2>Contact Us</h2>
-        </div>
-      </footer>
+      {/* Footer section */}
+      <footer style={{
+  backgroundColor: '#394b3b', // Dark green background
+  color: '#ecf0f1', // Light text color
+  textAlign: 'center',
+  padding: '50px 0',
+  display: 'flex',
+  justifyContent: 'space-around',
+  flexWrap: 'wrap'
+}}>
+  <div style={{ flex: '1 1 300px', margin: '20px' }}>
+    <h3 style={{
+      borderBottom: '2px solid #ecf0f1',
+      display: 'inline-block',
+      paddingBottom: '10px',
+      color: '#8FCB81' // Brighter green for the headings
+    }}><b>Our Pharmacy</b></h3>
+    <p><small>Central Pharmacy is committed to providing high-quality healthcare solutions. Trusted by the community since 2001.</small></p>
+  </div>
+  <div style={{ flex: '1 1 300px', margin: '20px' }}>
+    <h3 style={{
+      borderBottom: '2px solid #ecf0f1',
+      display: 'inline-block',
+      paddingBottom: '10px',
+      color: '#8FCB81' // Brighter green for the headings
+    }}><b>Follow Us</b></h3>
+    <div>
+      <a href="#facebook" style={{
+        color: '#ecf0f1',
+        margin: '0 10px',
+        textDecoration: 'none',
+        transition: 'color 0.3s'
+      }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} // Brighter green on hover
+        onMouseOut={(e) => e.target.style.color = '#ecf0f1'}><small>Facebook</small></a>
+      <a href="#twitter" style={{
+        color: '#ecf0f1',
+        margin: '0 10px',
+        textDecoration: 'none',
+        transition: 'color 0.3s'
+      }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} // Brighter green on hover
+        onMouseOut={(e) => e.target.style.color = '#ecf0f1'}><small>Twitter</small></a>
+      <a href="#instagram" style={{
+        color: '#ecf0f1',
+        margin: '0 10px',
+        textDecoration: 'none',
+        transition: 'color 0.3s'
+      }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} // Brighter green on hover
+        onMouseOut={(e) => e.target.style.color = '#ecf0f1'}><small>Instagram</small></a>
+    </div>
+  </div>
+  <div style={{ flex: '1 1 300px', margin: '20px' }}>
+    <h3 style={{
+      borderBottom: '2px solid #ecf0f1',
+      display: 'inline-block',
+      paddingBottom: '10px',
+      color: '#8FCB81' // Brighter green for the headings
+    }}><b>Contact Us</b></h3>
+    <p><small>Email: <a href="mailto:info@centralpharmacy.lk" style={{ color: '#ecf0f1', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>info@centralpharmacy.lk</a></small></p>
+    <p><small>Phone: <a href="tel:+94123456789" style={{ color: '#ecf0f1', textDecoration: 'none', transition: 'color 0.3s' }} onMouseOver={(e) => e.target.style.color = '#8FCB81'} onMouseOut={(e) => e.target.style.color = '#ecf0f1'}>+94 123 456 789</a></small></p>
+    <p><small>Address: 123 Main Street, Pokunuwita, Sri Lanka</small></p>
+  </div>
+</footer>
     </>
   );
 };

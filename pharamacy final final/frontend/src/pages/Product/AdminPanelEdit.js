@@ -98,11 +98,11 @@ const AdminPanelEdit = () => {
       <div>
         <button className="btn btn-primary" onClick={()=>navigate('/add-product')}>
           ADD PRODUCT
-        </button>
-      </div>
-      <Table striped bordered hover style={{width:'100%'}}>
+        </button><br/>
+      </div><br/><br/>
+      <table style={{width:'100%'}}>
         <thead>
-          <tr style={{padding:'10px',width:'100%'}}>
+          <tr style={{padding:'10px',width:'100%',color:'black'}}>
             <th>Title</th>
             <th>Description</th>
             <th>Category</th>
@@ -134,7 +134,7 @@ const AdminPanelEdit = () => {
             </tr>
           ))}
         </tbody>
-      </Table>
+      </table>
     </div>
   );
 };
